@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     //movement
     Rigidbody2D myBody;
     Transform myTrans;
-    CapsuleCollider2D myBox;
+    BoxCollider2D myBox;
     SpriteRenderer mySprite;
     [SerializeField] public LayerMask groundLayer;
     public float timer = 5.0f;
@@ -22,12 +22,12 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speedforce = 6f;
+        
         //how the sprites transfer
         myBody = GetComponent<Rigidbody2D>();
         mySprite = GetComponent<SpriteRenderer>();
         myTrans = GetComponent<Transform>();
-        myBox = GetComponent<CapsuleCollider2D>();
+        myBox = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -123,11 +123,6 @@ public class Player : MonoBehaviour
         if(collision.tag =="Player"|| collision.tag == "Win")
         {
             CHASEN_SCRIPT.level.changeScene(3);
-        }
-        if (collision.tag == "Player" || collision.tag == "trigger")
-        {
-            CHASEN_SCRIPT.level.changeScene(2);
-
         }
     }
 }
