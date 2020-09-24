@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     //movement
     Rigidbody2D myBody;
     Transform myTrans;
-    BoxCollider2D myBox;
+    CapsuleCollider2D myBox;
     SpriteRenderer mySprite;
     [SerializeField] public LayerMask groundLayer;
     public float timer = 5.0f;
@@ -22,12 +22,12 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speedforce = 4f;
+        speedforce = 6f;
         //how the sprites transfer
         myBody = GetComponent<Rigidbody2D>();
         mySprite = GetComponent<SpriteRenderer>();
         myTrans = GetComponent<Transform>();
-        myBox = GetComponent<BoxCollider2D>();
+        myBox = GetComponent<CapsuleCollider2D>();
     }
 
     // Update is called once per frame
