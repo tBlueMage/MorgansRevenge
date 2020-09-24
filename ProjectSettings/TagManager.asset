@@ -8,6 +8,7 @@ TagManager:
   - Win
   - Water
   - trigger
+  - Enemy
   layers:
   - Default
   - TransparentFX
