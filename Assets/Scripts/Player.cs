@@ -124,5 +124,10 @@ public class Player : MonoBehaviour
         {
             CHASEN_SCRIPT.level.changeScene(3);
         }
+        if (collision.tag == "Player" || collision.tag == "trigger")
+        {
+            CHASEN_SCRIPT.level.changeScene(2);
+
+        }
     }
 }
