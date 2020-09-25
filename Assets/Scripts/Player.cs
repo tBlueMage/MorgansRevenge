@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+    public HP hp;
 
     //movement
     Rigidbody2D myBody;
+
     Transform myTrans;
     CapsuleCollider2D myBox;
     SpriteRenderer mySprite;
@@ -124,9 +126,15 @@ public class Player : MonoBehaviour
         {
             CHASEN_SCRIPT.level.changeScene(3);
         }
-        if (collision.tag == "Player" || collision.tag == "Enemy")
+        if (collision.tag == "Player" || collision.tag == "Dog")
         {
-            CHASEN_SCRIPT.level.changeScene(2);
+            hp.barDisplay -= .2f;
+            if (hp.barDisplay < 0f)
+            {
+                hp.barDisplay = 0f;
+                CHASEN_SCRIPT.level.changeScene(2);
+            }
         }
+
     }
 }
