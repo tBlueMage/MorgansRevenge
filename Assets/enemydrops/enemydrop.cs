@@ -35,7 +35,7 @@ public class enemydrop : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //when the player collides with a test dummy drop an object from 1 to 7
-        if (collision.tag == "Player" || collision.tag == "Dummy")
+        if (collision.tag == "Player" || collision.tag == "Dog")
         {
             if(Drop==1)
             {
