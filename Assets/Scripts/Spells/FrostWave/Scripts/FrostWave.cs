@@ -19,12 +19,12 @@ public class FrostWave : MonoBehaviour
     {
 
 
-                if ((Input.GetKeyDown(KeyCode.O)&& Input.GetKeyDown(KeyCode.S) && !Input.GetKeyDown(KeyCode.D) && !Input.GetKeyDown(KeyCode.A) && !Input.GetKeyDown(KeyCode.W)))
+                if (Input.GetKeyDown(KeyCode.O)&& Input.GetKeyDown(KeyCode.S))
                 {
 
                     Fire();
 
-
+            Debug.Log("freeze");
                 }
             
 

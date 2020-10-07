@@ -11,7 +11,6 @@ public class Fireball : MonoBehaviour
     public GameObject FireballPrefab;
     public GameObject FireballSpawn;
 
-    public Player manacost;
     // Start is called before the first frame update
     void Start()
     {
