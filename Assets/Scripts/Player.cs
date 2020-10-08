@@ -97,21 +97,22 @@ public class Player : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.V) && timer <= 0.0f)
+        if (Input.GetKeyDown(KeyCode.O))
         {
-            myBody.velocity = new Vector2(myBody.velocity.x, jumpforce);
-            isMoving = false;
-
-            timer += 5.0f;
+            speedforce = 0;
         }
 
+        if (!Input.GetKey(KeyCode.O))
+        {
+            speedforce = 10;
+        }
 
 
 
 
     }
     //helps the bonus speed move
-   
+
     void Dead()
     {
         if (myBody.position.y <-5)

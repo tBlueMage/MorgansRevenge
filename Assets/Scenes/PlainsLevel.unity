@@ -18374,6 +18374,7 @@ GameObject:
   - component: {fileID: 1110518523}
   - component: {fileID: 1110518522}
   - component: {fileID: 1110518521}
+  - component: {fileID: 1110518528}
   - component: {fileID: 1110518525}
   - component: {fileID: 1110518524}
   - component: {fileID: 1110518526}
@@ -18561,6 +18562,20 @@ MonoBehaviour:
   GoldBar: {fileID: 6806969866165904133, guid: b501147b54790d4439c541085b4e2616, type: 3}
   playeref: {fileID: 244260956}
   Drop: 0
+--- !u!114 &1110518528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110518520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afbba703221303a4c9c8a1e30dd3a3c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemyhealth: 10
+  MyRef1: {fileID: 244260956}
 --- !u!1 &1164586508
 GameObject:
   m_ObjectHideFlags: 0
