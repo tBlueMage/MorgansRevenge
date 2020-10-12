@@ -21,9 +21,11 @@ public class Sword : MonoBehaviour
 
     }
 
+
     // Update is called once per frame
     void Update()
     {
+        handleMovement();
 
 
 
@@ -41,7 +43,25 @@ public class Sword : MonoBehaviour
 
         }
     }
+    void handleMovement()
 
+    {
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+            transform.localPosition = new Vector3(3.2f, 0, 0);
+
+        }
+
+        else if (Input.GetAxis("Horizontal") < 0)
+        {
+            transform.localPosition = new Vector3(-3.2f, 0, 0);
+
+        }
+
+
+
+
+    }
     void Fire()
     {
       

@@ -21,6 +21,7 @@ public class HighSword : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        handleMovement();
 
 
 
@@ -35,6 +36,26 @@ public class HighSword : MonoBehaviour
         {
             highslash = false;
         }
+    }
+    void handleMovement()
+
+    {
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+            transform.localPosition = new Vector3(2.7f, 2.1f, -0.5f);
+
+        }
+
+        else if (Input.GetAxis("Horizontal") < 0)
+        {
+            transform.localPosition = new Vector3(-2.7f, 2.1f, -0.5f);
+
+        }
+
+
+
+
+
     }
     void Fire()
     {

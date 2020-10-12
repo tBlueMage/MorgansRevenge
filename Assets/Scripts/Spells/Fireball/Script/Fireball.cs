@@ -25,7 +25,7 @@ public class Fireball : MonoBehaviour
     void Update()
     {
 
-       
+        handleMovement();
 
 
                 if ((Input.GetKeyDown(KeyCode.O) &&!Input.GetKeyDown(KeyCode.S) && !Input.GetKeyDown(KeyCode.D) && !Input.GetKeyDown(KeyCode.W)))
@@ -36,6 +36,25 @@ public class Fireball : MonoBehaviour
 
 
             
+
+    }
+    void handleMovement()
+
+    {
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+            transform.localPosition = new Vector3(2.9f, 0, 0);
+
+        }
+
+        else if (Input.GetAxis("Horizontal") < 0)
+        {
+            transform.localPosition = new Vector3(-2.9f, 0, 0);
+
+        }
+
+
+
 
     }
     void Fire()
