@@ -7,6 +7,7 @@ public class Lightning : MonoBehaviour
 
     public GameObject LightningPrefab;
     public GameObject LightningSpawn;
+    bool righttrue;
 
     // Start is called before the first frame update
     void Start()
@@ -20,11 +21,14 @@ public class Lightning : MonoBehaviour
     {
         handleMovement();
 
+        if ((Input.GetKeyDown(KeyCode.O) && Input.GetKeyDown(KeyCode.A)))
+        {
+            Fire();
+
+        }
 
 
-
-
-                if ((Input.GetKeyDown(KeyCode.O) && Input.GetKeyDown(KeyCode.D)))
+        if ((Input.GetKeyDown(KeyCode.O) && Input.GetKeyDown(KeyCode.D)))
                 {
                     Fire();
 
@@ -64,6 +68,8 @@ public class Lightning : MonoBehaviour
         //make a bullet
         light = (Instantiate(LightningPrefab, LightningSpawn.transform.position, transform.rotation)) as GameObject;
 
+
+      
         //give it force
         light.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0));
 

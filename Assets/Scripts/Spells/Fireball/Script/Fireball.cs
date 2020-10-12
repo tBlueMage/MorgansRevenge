@@ -10,7 +10,7 @@ public class Fireball : MonoBehaviour
 
     public GameObject FireballPrefab;
     public GameObject FireballSpawn;
-
+    bool righttrue;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,13 +44,13 @@ public class Fireball : MonoBehaviour
         if (Input.GetAxis("Horizontal") > 0)
         {
             transform.localPosition = new Vector3(2.9f, 0, 0);
-
+            righttrue = true;
         }
 
         else if (Input.GetAxis("Horizontal") < 0)
         {
             transform.localPosition = new Vector3(-2.9f, 0, 0);
-
+            righttrue = false;
         }
 
 
@@ -60,18 +60,25 @@ public class Fireball : MonoBehaviour
     void Fire()
     {
         //have a bullet
-        GameObject blade;
+        GameObject fireball;
 
         Debug.Log("normalShot");
 
         //make a bullet
-        blade = (Instantiate(FireballPrefab, FireballSpawn.transform.position, transform.rotation)) as GameObject;
+        fireball = (Instantiate(FireballPrefab, FireballSpawn.transform.position, transform.rotation)) as GameObject;
 
         //give it force
-        blade.GetComponent<Rigidbody2D>().AddForce(new Vector2(100, 0));
 
+        if (righttrue == true)
+        {
+            fireball.GetComponent<Rigidbody2D>().AddForce(new Vector2(400, 0));
+        }
+        if (righttrue == false)
+        {
+            fireball.GetComponent<Rigidbody2D>().AddForce(new Vector2(-400, 0));
+        }
         //destroy after 2 seconds
-        Destroy(blade, 1.0f);
+        Destroy(fireball, 1.0f);
 
        
 
