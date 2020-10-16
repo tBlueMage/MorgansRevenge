@@ -1,17 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public class Player : MonoBehaviour
+using UnityEngine.UI;
+public class PLAYER_SCRIPT : MonoBehaviour
 {
-    public HP hp;
+    public Slider Hp;
 
     //movement
     Rigidbody2D myBody;
 
     Transform myTrans;
-    CapsuleCollider2D myBox;
+    public BoxCollider2D myBox;
     SpriteRenderer mySprite;
     [SerializeField] public LayerMask groundLayer;
     public float timer = 5.0f;
@@ -24,12 +25,11 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
         //how the sprites transfer
         myBody = GetComponent<Rigidbody2D>();
         mySprite = GetComponent<SpriteRenderer>();
         myTrans = GetComponent<Transform>();
-        myBox = GetComponent <CapsuleCollider2D>();
     }
 
     // Update is called once per frame
@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
         handleMovement();
 
         Dead();
-     
+
     }
     //checks if the players on the ground
     void checkForGround()
@@ -115,7 +115,12 @@ public class Player : MonoBehaviour
 
     void Dead()
     {
-        if (myBody.position.y <-5)
+        if (myBody.position.y < -5)
+        {
+            CHASEN_SCRIPT.level.changeScene(2);
+        }
+
+        if (Hp.value <= 0)
         {
             CHASEN_SCRIPT.level.changeScene(2);
         }
@@ -123,19 +128,15 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag =="Player"|| collision.tag == "Win")
+        if (collision.tag == "Player" || collision.tag == "Win")
         {
             CHASEN_SCRIPT.level.changeScene(3);
         }
-        if (collision.tag == "Player" || collision.tag == "Dog")
+       else  if (collision.gameObject.CompareTag("Enemy"))
         {
-            hp.barDisplay -= .2f;
-            if (hp.barDisplay < 0f)
-            {
-                hp.barDisplay = 0f;
-                CHASEN_SCRIPT.level.changeScene(2);
-            }
-        }
+           var damage = collision.gameObject.GetComponent<POWERSCRIPT>();
 
+            Hp.value -= damage.Damage;
+        }
     }
 }

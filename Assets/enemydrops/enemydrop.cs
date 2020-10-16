@@ -16,7 +16,7 @@ public class enemydrop : MonoBehaviour
     public GameObject GoldBar;
     public GameObject playeref;
     //player is called
-    Player players;
+    PLAYER_SCRIPT players;
     //int for the drop
     public int Drop;
 
@@ -28,7 +28,7 @@ public class enemydrop : MonoBehaviour
         
         //how player is called
         var player = GameObject.FindWithTag("Player");
-        players = player.GetComponentInParent<Player>();
+        players = player.GetComponentInParent<PLAYER_SCRIPT>();
     }
 
  

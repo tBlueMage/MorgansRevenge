@@ -12,13 +12,10 @@ public class EnemyHp : MonoBehaviour
     //player ref
     public GameObject MyRef1;
     //how you get the crits
-    Player damage;
 
     // Start is called before the first frame update
     void Start()
     {      //how the player and damages get found
-        var item = GameObject.FindWithTag("Player");
-        damage = item.GetComponentInParent<Player>();
 
     }
     void Update()
@@ -28,59 +25,19 @@ public class EnemyHp : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {//it detects the sword and soldier collision
-        if (collision.tag == "Sword" || collision.tag == "Dog")
+        if (collision.gameObject.CompareTag("PlayerAttack"))
         {
+            var damage = collision.gameObject.GetComponent<POWERSCRIPT>();
+
+            Enemyhealth -= damage.Damage;
 
 
-                
-                    Enemyhealth -= swordhit;
+            Debug.Log(Enemyhealth);
 
-                
 
-            }
-       
-        //fireball and soldier collision detected
-        if (collision.tag == "Fireball" || collision.tag == "Dog")
-        {
-            Enemyhealth -= 1;
-            Debug.Log(Enemyhealth);
         }
-        //windwall and soldier collision detected
-        if (collision.tag == "WindWall" || collision.tag == "Dog")
-        {
-            Enemyhealth -= 1;
-            Debug.Log(Enemyhealth);
-        }
-        //explosion and soldier collision detected
-        if (collision.tag == "Explosion" || collision.tag == "Dog")
-        { 
-            Enemyhealth -= 4;
-            Debug.Log(Enemyhealth);
-        }
-        //frostwave and soldier collision detected
-        if (collision.tag == "Frost" || collision.tag == "Dog")
-        { 
-            Enemyhealth -= 4;
-            Debug.Log(Enemyhealth);
-        }
-        //lighting and soldier collision detected
-        if (collision.tag == "Lightning" || collision.tag == "Dog")
-        {
-            Enemyhealth -= 1;
-            Debug.Log(Enemyhealth);
-        }
-        //lava and soldier collision detected
-        if (collision.tag == "Lava" || collision.tag == "Dog")
-        {
-            Enemyhealth -= 999;
-            Debug.Log(Enemyhealth);
-        }
-        //water and soldier collision detected
-        if (collision.tag == "Water" || collision.tag == "Dog")
-        {
-            Enemyhealth -= 999;
-            Debug.Log(Enemyhealth);
-        }  
+
+
     }
     //where the enemy code dies
         void EnemyDead() {

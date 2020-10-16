@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class water : MonoBehaviour
+public class WATER_SCRIPT: MonoBehaviour
 {
  
     private void OnTriggerEnter2D(Collider2D collision)
