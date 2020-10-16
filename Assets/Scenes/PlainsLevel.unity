@@ -442,6 +442,8 @@ GameObject:
   - component: {fileID: 244260957}
   - component: {fileID: 244260962}
   - component: {fileID: 244260959}
+  - component: {fileID: 244260964}
+  - component: {fileID: 244260963}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -590,6 +592,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac867303fe1d19743b2167d26df104bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &244260963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244260956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf4b55fca65589c4eb0dedc1c38b7e8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &244260964
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244260956}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 710551737b2389148bc4311f7e78cda1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &331640295
 GameObject:
   m_ObjectHideFlags: 0
@@ -10822,7 +10855,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1052205775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10943,8 +10976,9 @@ GameObject:
   - component: {fileID: 1110518526}
   - component: {fileID: 1110518527}
   - component: {fileID: 1110518529}
+  - component: {fileID: 1110518524}
   m_Layer: 9
-  m_Name: Enemy
+  m_Name: WarDog
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11004,7 +11038,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 334c1dc540141694e88b1e3c2e1f9075, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 38f69775fe09f1641b60fd39419bfcd2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -11031,6 +11065,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1110518524
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110518520}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2d41f5caf51106944a02bb1428ec93fb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!50 &1110518525
 Rigidbody2D:
   serializedVersion: 4
@@ -11127,7 +11180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d44ded6b2cee694ebf2ff9ba14caacc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  Damage: 2
 --- !u!1 &1164586508
 GameObject:
   m_ObjectHideFlags: 0
