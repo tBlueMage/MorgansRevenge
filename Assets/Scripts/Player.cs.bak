@@ -24,7 +24,11 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+<<<<<<< HEAD:Assets/Scripts/Player.cs
+        
+=======
 
+>>>>>>> parent of 8854646... knockback:Assets/Scripts/PLAYER_SCRIPT.cs
         //how the sprites transfer
         myBody = GetComponent<Rigidbody2D>();
         mySprite = GetComponent<SpriteRenderer>();
@@ -39,7 +43,11 @@ public class Player : MonoBehaviour
         handleMovement();
 
         Dead();
+<<<<<<< HEAD:Assets/Scripts/Player.cs
+     
+=======
 
+>>>>>>> parent of 8854646... knockback:Assets/Scripts/PLAYER_SCRIPT.cs
     }
     //checks if the players on the ground
     void checkForGround()
@@ -129,9 +137,18 @@ public class Player : MonoBehaviour
         }
         if (collision.tag == "Player" || collision.tag == "Dog")
         {
+<<<<<<< HEAD:Assets/Scripts/Player.cs
+            hp.barDisplay -= .2f;
+            if (hp.barDisplay < 0f)
+            {
+                hp.barDisplay = 0f;
+                CHASEN_SCRIPT.level.changeScene(2);
+            }
+=======
            var damage = collision.gameObject.GetComponent<POWERSCRIPT>();
 
             Hp.value -= damage.Damage;
+>>>>>>> parent of 8854646... knockback:Assets/Scripts/PLAYER_SCRIPT.cs
         }
 
     }

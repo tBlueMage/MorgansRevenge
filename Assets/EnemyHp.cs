@@ -1,109 +1,138 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyHp : MonoBehaviour
 {
-    //enemys hp
-    public int Enemyhealth = 10;
-    //player swords damage
-    int swordhit = 1;
+    public HP hp;
 
-    //player ref
-    public GameObject MyRef1;
-    //how you get the crits
-    Player damage;
+    //movement
+    Rigidbody2D myBody;
 
+    Transform myTrans;
+    CapsuleCollider2D myBox;
+    SpriteRenderer mySprite;
+    [SerializeField] public LayerMask groundLayer;
+    public float timer = 5.0f;
+    public bool isGrounded = false;
+    public bool isMoving = false;
+    public bool isLeft = true;
+    public float jumpforce;
+    public float speedforce;
+    public float bonusspeed;
     // Start is called before the first frame update
     void Start()
-    {      //how the player and damages get found
-<<<<<<< HEAD
-        var item = GameObject.FindWithTag("Player");
-        damage = item.GetComponentInParent<Player>();
-=======
->>>>>>> parent of 8854646... knockback
+    {
 
+        //how the sprites transfer
+        myBody = GetComponent<Rigidbody2D>();
+        mySprite = GetComponent<SpriteRenderer>();
+        myTrans = GetComponent<Transform>();
+        myBox = GetComponent <CapsuleCollider2D>();
     }
+
+    // Update is called once per frame
     void Update()
     {
-        //how enemy dies
-        EnemyDead();
+        checkForGround();
+        handleMovement();
+
+        Dead();
+
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {//it detects the sword and soldier collision
-        if (collision.tag == "Sword" || collision.tag == "Dog")
+    //checks if the players on the ground
+    void checkForGround()
+    {
+
+        RaycastHit2D raycastHit2d = Physics2D.BoxCast(myBox.bounds.center, myBox.bounds.size, 0f, Vector2.down, .1f, groundLayer);
+
+        if (raycastHit2d.collider != null)
         {
-<<<<<<< HEAD
+            isGrounded = true;
+        }
 
+        else
+        {
 
-                
-                    Enemyhealth -= swordhit;
+            isGrounded = false;
+        }
+    }
+    //handles the movement
+    void handleMovement()
 
-                
+    {
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+            myBody.velocity = new Vector2(+speedforce + bonusspeed, myBody.velocity.y);
+            mySprite.flipX = true;
+            isMoving = true;
+            isLeft = true;
+
+        }
+        else
+        {
+            if (Input.GetAxis("Horizontal") < 0)
+            {
+                myBody.velocity = new Vector2(-speedforce - bonusspeed, myBody.velocity.y);
+                mySprite.flipX = false;
+                isMoving = true;
+                isLeft = false;
 
             }
-       
-        //fireball and soldier collision detected
-        if (collision.tag == "Fireball" || collision.tag == "Dog")
+
+            else
+            {
+                isMoving = false;
+                myBody.velocity = new Vector2(0, myBody.velocity.y);
+
+
+            }
+        }
+
+        if (Input.GetAxis("Jump") > 0 && isGrounded)
         {
-            Enemyhealth -= 1;
-            Debug.Log(Enemyhealth);
+            myBody.velocity = new Vector2(myBody.velocity.x, jumpforce);
+            isMoving = false;
         }
-        //windwall and soldier collision detected
-        if (collision.tag == "WindWall" || collision.tag == "Dog")
+
+
+        if (Input.GetKeyDown(KeyCode.O))
         {
-            Enemyhealth -= 1;
-            Debug.Log(Enemyhealth);
+            speedforce = 0;
         }
-        //explosion and soldier collision detected
-        if (collision.tag == "Explosion" || collision.tag == "Dog")
-        { 
-            Enemyhealth -= 4;
-            Debug.Log(Enemyhealth);
-        }
-        //frostwave and soldier collision detected
-        if (collision.tag == "Frost" || collision.tag == "Dog")
-        { 
-            Enemyhealth -= 4;
-            Debug.Log(Enemyhealth);
-        }
-        //lighting and soldier collision detected
-        if (collision.tag == "Lightning" || collision.tag == "Dog")
+
+        if (!Input.GetKey(KeyCode.O))
         {
-            Enemyhealth -= 1;
-            Debug.Log(Enemyhealth);
-        }
-        //lava and soldier collision detected
-        if (collision.tag == "Lava" || collision.tag == "Dog")
-        {
-            Enemyhealth -= 999;
-            Debug.Log(Enemyhealth);
-        }
-        //water and soldier collision detected
-        if (collision.tag == "Water" || collision.tag == "Dog")
-        {
-            Enemyhealth -= 999;
-            Debug.Log(Enemyhealth);
-        }  
-=======
-            var damage = collision.gameObject.GetComponent<POWERSCRIPT>();
-
-            Enemyhealth -= damage.Damage;
-
-
-            Debug.Log(Enemyhealth);
-
-
+            speedforce = 10;
         }
 
 
->>>>>>> parent of 8854646... knockback
+
+
     }
-    //where the enemy code dies
-        void EnemyDead() {
-        if (Enemyhealth <= 0)
+    //helps the bonus speed move
+
+    void Dead()
+    {
+        if (myBody.position.y <-5)
         {
-            Destroy(gameObject);
+            CHASEN_SCRIPT.level.changeScene(2);
         }
-                         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag =="Player"|| collision.tag == "Win")
+        {
+            CHASEN_SCRIPT.level.changeScene(3);
+        }
+        if (collision.tag == "Player" || collision.tag == "Dog")
+        {
+           var damage = collision.gameObject.GetComponent<POWERSCRIPT>();
+
+            Hp.value -= damage.Damage;
+        }
+
+    }
 }
