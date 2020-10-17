@@ -1,20 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public class Player : MonoBehaviour
+using UnityEngine.UI;
+public class PLAYER_SCRIPT : MonoBehaviour
 {
-    public HP hp;
+    public Slider Hp;
 
     //movement
     Rigidbody2D myBody;
 
     Transform myTrans;
-    CapsuleCollider2D myBox;
+    public BoxCollider2D myBox;
     SpriteRenderer mySprite;
     [SerializeField] public LayerMask groundLayer;
-    public float timer = 5.0f;
+    public float invulnertimer;
+    public float invulnertarget;
+    public bool invicibility;
     public bool isGrounded = false;
     public bool isMoving = false;
     public bool isLeft = true;
@@ -24,12 +27,12 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        invulnertarget = 0.0f;
+        invulnertimer = 0.0f;
         //how the sprites transfer
         myBody = GetComponent<Rigidbody2D>();
         mySprite = GetComponent<SpriteRenderer>();
         myTrans = GetComponent<Transform>();
-        myBox = GetComponent <CapsuleCollider2D>();
     }
 
     // Update is called once per frame
@@ -39,7 +42,7 @@ public class Player : MonoBehaviour
         handleMovement();
 
         Dead();
-     
+        invulerability(); 
     }
     //checks if the players on the ground
     void checkForGround()
@@ -112,10 +115,34 @@ public class Player : MonoBehaviour
 
     }
     //helps the bonus speed move
+    void invulerability()
+    {
+        if(invicibility == true)
+        {
 
+            invulnertimer -= Time.deltaTime;
+
+            Debug.Log(invulnertimer);
+            if (invulnertimer <= invulnertarget)
+            {
+                invicibility = false;
+                Debug.Log("invicibilitygone");
+                invulnertimer = 0.0f;
+
+            }
+        }
+
+     
+
+    }
     void Dead()
     {
-        if (myBody.position.y <-5)
+        if (myBody.position.y < -5)
+        {
+            CHASEN_SCRIPT.level.changeScene(2);
+        }
+
+        if (Hp.value <= 0)
         {
             CHASEN_SCRIPT.level.changeScene(2);
         }
@@ -123,19 +150,31 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag =="Player"|| collision.tag == "Win")
+        if (collision.tag == "Player" || collision.tag == "Win")
         {
             CHASEN_SCRIPT.level.changeScene(3);
         }
-        if (collision.tag == "Player" || collision.tag == "Dog")
+       else  if (collision.gameObject.CompareTag("Enemy"))
         {
-            hp.barDisplay -= .2f;
-            if (hp.barDisplay < 0f)
+             if (invicibility == false)
             {
-                hp.barDisplay = 0f;
-                CHASEN_SCRIPT.level.changeScene(2);
-            }
-        }
+                
+                    var damage = collision.gameObject.GetComponent<POWERSCRIPT>();
+                    Hp.value -= damage.Damage;
+                    invicibility = true;
+                invulnertimer = 5.0f;
 
+
+
+            }
+
+          else
+            {
+
+
+            }
+
+
+        }
     }
 }

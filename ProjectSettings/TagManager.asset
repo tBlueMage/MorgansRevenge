@@ -10,6 +10,19 @@ TagManager:
   - trigger
   - Enemy
   - Dog
+  - Lightning
+  - Frost
+  - BSnack
+  - Mpotion
+  - Fireball
+  - Cbag
+  - gBar
+  - Mvial
+  - Bmeal
+  - Explosion
+  - Sword
+  - WindWall
+  - PlayerAttack
   layers:
   - Default
   - TransparentFX
@@ -20,8 +33,8 @@ TagManager:
   - 
   - 
   - Ground
-  - 
-  - 
+  - Enemy
+  - PlayerAttack
   - 
   - 
   - 

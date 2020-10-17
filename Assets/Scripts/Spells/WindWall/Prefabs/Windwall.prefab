@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 8578192331728397904}
   - component: {fileID: 1683614311959281314}
   - component: {fileID: 4780957674118571409}
-  m_Layer: 0
+  - component: {fileID: 1867482210440031611}
+  m_Layer: 10
   m_Name: Windwall
-  m_TagString: WindWall
+  m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,3 +131,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1867482210440031611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8379373233006816525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d44ded6b2cee694ebf2ff9ba14caacc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 2
