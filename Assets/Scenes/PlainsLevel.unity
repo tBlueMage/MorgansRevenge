@@ -468,7 +468,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
-  timer: 0
+  invulnertimer: 0
+  invulnertarget: 0
+  invicibility: 0
   isGrounded: 0
   isMoving: 0
   isLeft: 1
@@ -509,8 +511,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 3.2, y: 6.4}
+  m_Offset: {x: -0.25842857, y: 0.01174736}
+  m_Size: {x: 3.5289078, y: 6.376505}
   m_Direction: 0
 --- !u!212 &244260960
 SpriteRenderer:
@@ -10810,7 +10812,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.049399376, y: 0.20416641}
+  m_Offset: {x: -0.1551199, y: 0.20416641}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -10821,7 +10823,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7581463, y: 0.91833496}
+  m_Size: {x: 2.0746517, y: 0.91833496}
   m_EdgeRadius: 0
 --- !u!4 &1000136221
 Transform:
@@ -10977,6 +10979,7 @@ GameObject:
   - component: {fileID: 1110518527}
   - component: {fileID: 1110518529}
   - component: {fileID: 1110518524}
+  - component: {fileID: 1110518530}
   m_Layer: 9
   m_Name: WarDog
   m_TagString: Enemy
@@ -11166,6 +11169,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afbba703221303a4c9c8a1e30dd3a3c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  invulnertimer: 0
+  invulnertarget: 0
+  invicibility: 0
   Enemyhealth: 10
   MyRef1: {fileID: 244260956}
 --- !u!114 &1110518529
@@ -11181,6 +11187,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 2
+--- !u!114 &1110518530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110518520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33e2ad0f395e4f549a8256a0ec4b4d1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1110518525}
+  knockBack: 0
+  thrust: 150
 --- !u!1 &1164586508
 GameObject:
   m_ObjectHideFlags: 0

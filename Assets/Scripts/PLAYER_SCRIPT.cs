@@ -15,7 +15,9 @@ public class PLAYER_SCRIPT : MonoBehaviour
     public BoxCollider2D myBox;
     SpriteRenderer mySprite;
     [SerializeField] public LayerMask groundLayer;
-    public float timer = 5.0f;
+    public float invulnertimer;
+    public float invulnertarget;
+    public bool invicibility;
     public bool isGrounded = false;
     public bool isMoving = false;
     public bool isLeft = true;
@@ -25,7 +27,8 @@ public class PLAYER_SCRIPT : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        invulnertarget = 0.0f;
+        invulnertimer = 0.0f;
         //how the sprites transfer
         myBody = GetComponent<Rigidbody2D>();
         mySprite = GetComponent<SpriteRenderer>();
@@ -39,7 +42,7 @@ public class PLAYER_SCRIPT : MonoBehaviour
         handleMovement();
 
         Dead();
-
+        invulerability(); 
     }
     //checks if the players on the ground
     void checkForGround()
@@ -112,7 +115,26 @@ public class PLAYER_SCRIPT : MonoBehaviour
 
     }
     //helps the bonus speed move
+    void invulerability()
+    {
+        if(invicibility == true)
+        {
 
+            invulnertimer -= Time.deltaTime;
+
+            Debug.Log(invulnertimer);
+            if (invulnertimer <= invulnertarget)
+            {
+                invicibility = false;
+                Debug.Log("invicibilitygone");
+                invulnertimer = 0.0f;
+
+            }
+        }
+
+     
+
+    }
     void Dead()
     {
         if (myBody.position.y < -5)
@@ -134,9 +156,25 @@ public class PLAYER_SCRIPT : MonoBehaviour
         }
        else  if (collision.gameObject.CompareTag("Enemy"))
         {
-           var damage = collision.gameObject.GetComponent<POWERSCRIPT>();
+             if (invicibility == false)
+            {
+                
+                    var damage = collision.gameObject.GetComponent<POWERSCRIPT>();
+                    Hp.value -= damage.Damage;
+                    invicibility = true;
+                invulnertimer = 5.0f;
 
-            Hp.value -= damage.Damage;
+
+
+            }
+
+          else
+            {
+
+
+            }
+
+
         }
     }
 }
