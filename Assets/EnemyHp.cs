@@ -17,8 +17,11 @@ public class EnemyHp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {      //how the player and damages get found
+<<<<<<< HEAD
         var item = GameObject.FindWithTag("Player");
         damage = item.GetComponentInParent<Player>();
+=======
+>>>>>>> parent of 8854646... knockback
 
     }
     void Update()
@@ -30,6 +33,7 @@ public class EnemyHp : MonoBehaviour
     {//it detects the sword and soldier collision
         if (collision.tag == "Sword" || collision.tag == "Dog")
         {
+<<<<<<< HEAD
 
 
                 
@@ -81,6 +85,19 @@ public class EnemyHp : MonoBehaviour
             Enemyhealth -= 999;
             Debug.Log(Enemyhealth);
         }  
+=======
+            var damage = collision.gameObject.GetComponent<POWERSCRIPT>();
+
+            Enemyhealth -= damage.Damage;
+
+
+            Debug.Log(Enemyhealth);
+
+
+        }
+
+
+>>>>>>> parent of 8854646... knockback
     }
     //where the enemy code dies
         void EnemyDead() {
