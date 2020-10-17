@@ -7,6 +7,7 @@ public class enemydrop : MonoBehaviour
 {//how the dropprefab is called
     //how the objects drop
     public Transform spawn;
+    EnemyHp hp;
     public GameObject Bsnack;
     public GameObject Bmeal;
     public GameObject Mvial;
@@ -16,32 +17,40 @@ public class enemydrop : MonoBehaviour
     public GameObject GoldBar;
     public GameObject playeref;
     //player is called
-    Player players;
+    PLAYER_SCRIPT players;
     //int for the drop
     public int Drop;
 
     // Start is called before the first frame update
     void Start()
     {
+        hp = GetComponent<EnemyHp>();
+
         //the range of the objects being dropped
         Drop = Random.Range(1, 7);
         
         //how player is called
         var player = GameObject.FindWithTag("Player");
-        players = player.GetComponentInParent<Player>();
+        players = player.GetComponentInParent<PLAYER_SCRIPT>();
     }
 
- 
-    private void OnTriggerEnter2D(Collider2D collision)
+     void Update()
     {
-        //when the player collides with a test dummy drop an object from 1 to 7
-        if (collision.tag == "Player" || collision.tag == "Dog")
+        Dead();
+
+    }
+
+    void Dead()
+    {
+
+        if (hp.Enemyhealth <= 0)
         {
-            if(Drop==1)
+            //when the player collides with a test dummy drop an object from 1 to 7
+            if (Drop == 1)
             {
                 GameObject drop1;
 
-                drop1= (Instantiate(Bmeal, spawn.transform.position, transform.rotation)) as GameObject;
+                drop1 = (Instantiate(Bmeal, spawn.transform.position, transform.rotation)) as GameObject;
                 drop1.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0));
 
             }
@@ -89,14 +98,15 @@ public class enemydrop : MonoBehaviour
             {
                 GameObject drop7;
 
-               drop7 = (Instantiate(GoldCoin, spawn.transform.position, transform.rotation)) as GameObject;
+                drop7 = (Instantiate(GoldCoin, spawn.transform.position, transform.rotation)) as GameObject;
                 drop7.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0));
 
             }
             //resets the drop range for the item drop
             Drop = Random.Range(1, 7);
+
+
         }
-
-
     }
+    
 }
