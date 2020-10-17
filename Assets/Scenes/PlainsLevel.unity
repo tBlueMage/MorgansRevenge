@@ -22769,9 +22769,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1296432308}
   - component: {fileID: 1296432307}
-  - component: {fileID: 1296432306}
   - component: {fileID: 1296432305}
   - component: {fileID: 1296432304}
+  - component: {fileID: 1296432309}
   m_Layer: 0
   m_Name: Water (2)
   m_TagString: Water
@@ -22826,18 +22826,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9502547, y: 0.98706245}
   m_EdgeRadius: 0
---- !u!114 &1296432306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1296432303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbe7ad13b24cf3640a01f6dc59ad4a14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1296432307
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -22876,7 +22864,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 61461562b345c7847ad7083ff1bc8ad4, type: 3}
   m_Color: {r: 0.13768578, g: 0.21176471, b: 1, a: 1}
   m_FlipX: 0
@@ -22902,6 +22890,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1296432309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296432303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5875be6a1533a3e40b48a29de66a0a00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFrozen: 0
+  isSurface: 0
 --- !u!1 &1307034737
 GameObject:
   m_ObjectHideFlags: 0
@@ -41715,9 +41717,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1477514445}
   - component: {fileID: 1477514444}
-  - component: {fileID: 1477514443}
   - component: {fileID: 1477514447}
   - component: {fileID: 1477514446}
+  - component: {fileID: 1477514448}
   m_Layer: 0
   m_Name: Water
   m_TagString: Water
@@ -41725,18 +41727,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1477514443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1477514442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbe7ad13b24cf3640a01f6dc59ad4a14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1477514444
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -41775,7 +41765,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 61461562b345c7847ad7083ff1bc8ad4, type: 3}
   m_Color: {r: 0.13768578, g: 0.21176471, b: 1, a: 1}
   m_FlipX: 0
@@ -41848,6 +41838,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9502547, y: 0.98706245}
   m_EdgeRadius: 0
+--- !u!114 &1477514448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1477514442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5875be6a1533a3e40b48a29de66a0a00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFrozen: 0
+  isSurface: 0
 --- !u!1001 &1542521294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42095,9 +42099,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2140150794}
   - component: {fileID: 2140150793}
-  - component: {fileID: 2140150792}
   - component: {fileID: 2140150791}
   - component: {fileID: 2140150790}
+  - component: {fileID: 2140150795}
   m_Layer: 0
   m_Name: Water (1)
   m_TagString: Water
@@ -42152,18 +42156,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9502547, y: 0.98706245}
   m_EdgeRadius: 0
---- !u!114 &2140150792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2140150789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbe7ad13b24cf3640a01f6dc59ad4a14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &2140150793
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -42202,7 +42194,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 61461562b345c7847ad7083ff1bc8ad4, type: 3}
   m_Color: {r: 0.13768578, g: 0.21176471, b: 1, a: 1}
   m_FlipX: 0
@@ -42228,3 +42220,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2140150795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140150789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5875be6a1533a3e40b48a29de66a0a00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFrozen: 0
+  isSurface: 0
