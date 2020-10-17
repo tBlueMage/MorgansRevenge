@@ -22467,6 +22467,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 721001910}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1 &749863966
 GameObject:
   m_ObjectHideFlags: 0
@@ -22675,6 +22676,8 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 721001910}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> parent of 06a283e... code_touch_up
 --- !u!1 &1110518520
 GameObject:
   m_ObjectHideFlags: 0
@@ -22692,6 +22695,7 @@ GameObject:
   - component: {fileID: 1110518526}
   - component: {fileID: 1110518527}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Dog
@@ -22702,6 +22706,11 @@ GameObject:
   m_Name: WarDog
   m_TagString: Enemy
 >>>>>>> parent of 8854646... knockback
+=======
+  m_Layer: 0
+  m_Name: Enemy
+  m_TagString: Dog
+>>>>>>> parent of 06a283e... code_touch_up
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22897,6 +22906,7 @@ MonoBehaviour:
   Enemyhealth: 10
   MyRef1: {fileID: 244260956}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 --- !u!114 &1110518529
 MonoBehaviour:
@@ -22918,6 +22928,8 @@ MonoBehaviour:
 >>>>>>> parent of 8854646... knockback
 =======
 >>>>>>> parent of 8854646... knockback
+=======
+>>>>>>> parent of 06a283e... code_touch_up
 --- !u!1 &1164586508
 GameObject:
   m_ObjectHideFlags: 0
@@ -22968,6 +22980,7 @@ MonoBehaviour:
   fullTex: {fileID: 0}
 --- !u!1 &1244787074
 GameObject:
+<<<<<<< HEAD
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -23118,6 +23131,8 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!4 &1296432308
 Transform:
+=======
+>>>>>>> parent of 06a283e... code_touch_up
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -42283,6 +42298,7 @@ MonoBehaviour:
     type: 3}
   FrostWaveSpawn: {fileID: 1953714975}
 --- !u!1 &2128354957
+<<<<<<< HEAD
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42330,6 +42346,8 @@ CircleCollider2D:
   serializedVersion: 2
   m_Radius: 0.5
 --- !u!1 &2140150789
+=======
+>>>>>>> parent of 06a283e... code_touch_up
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
