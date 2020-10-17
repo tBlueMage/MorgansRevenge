@@ -1,18 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-public class PLAYER_SCRIPT : MonoBehaviour
+
+public class Player : MonoBehaviour
 {
-    public Slider Hp;
+    public HP hp;
 
     //movement
     Rigidbody2D myBody;
 
     Transform myTrans;
-    public BoxCollider2D myBox;
+    CapsuleCollider2D myBox;
     SpriteRenderer mySprite;
     [SerializeField] public LayerMask groundLayer;
     public float timer = 5.0f;
@@ -25,11 +24,12 @@ public class PLAYER_SCRIPT : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
         //how the sprites transfer
         myBody = GetComponent<Rigidbody2D>();
         mySprite = GetComponent<SpriteRenderer>();
         myTrans = GetComponent<Transform>();
+        myBox = GetComponent <CapsuleCollider2D>();
     }
 
     // Update is called once per frame
@@ -39,7 +39,7 @@ public class PLAYER_SCRIPT : MonoBehaviour
         handleMovement();
 
         Dead();
-
+     
     }
     //checks if the players on the ground
     void checkForGround()
@@ -115,12 +115,7 @@ public class PLAYER_SCRIPT : MonoBehaviour
 
     void Dead()
     {
-        if (myBody.position.y < -5)
-        {
-            CHASEN_SCRIPT.level.changeScene(2);
-        }
-
-        if (Hp.value <= 0)
+        if (myBody.position.y <-5)
         {
             CHASEN_SCRIPT.level.changeScene(2);
         }
@@ -128,15 +123,19 @@ public class PLAYER_SCRIPT : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player" || collision.tag == "Win")
+        if(collision.tag =="Player"|| collision.tag == "Win")
         {
             CHASEN_SCRIPT.level.changeScene(3);
         }
-       else  if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.tag == "Player" || collision.tag == "Dog")
         {
-           var damage = collision.gameObject.GetComponent<POWERSCRIPT>();
-
-            Hp.value -= damage.Damage;
+            hp.barDisplay -= .2f;
+            if (hp.barDisplay < 0f)
+            {
+                hp.barDisplay = 0f;
+                CHASEN_SCRIPT.level.changeScene(2);
+            }
         }
+
     }
 }

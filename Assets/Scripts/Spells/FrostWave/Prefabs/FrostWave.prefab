@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6738231501771818080}
   - component: {fileID: 4143329212916548977}
   - component: {fileID: 5056294492840069740}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: FrostWave
-  m_TagString: PlayerAttack
+  m_TagString: Frost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
