@@ -26,7 +26,7 @@ public class HighSword : MonoBehaviour
 
 
 
-        if ((Input.GetKey(KeyCode.Space) && Input.GetKeyDown(KeyCode.X)) || (Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.Space)))
+        if ((Input.GetKey(KeyCode.Space) && Input.GetKeyDown(KeyCode.K)) || (Input.GetKeyDown(KeyCode.K) && Input.GetKey(KeyCode.Space)))
         {
             highslash = true;
             Fire();

@@ -26,7 +26,7 @@ public class LowSword : MonoBehaviour
 
 
 
-        if ((Input.GetKey(KeyCode.S) && Input.GetKeyDown(KeyCode.X)) || (Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.S)))
+        if ((Input.GetKey(KeyCode.S) && Input.GetKeyDown(KeyCode.K)) || (Input.GetKeyDown(KeyCode.K) && Input.GetKey(KeyCode.S)))
         {
             Fire();
           

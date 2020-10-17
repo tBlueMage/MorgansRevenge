@@ -30,7 +30,7 @@ public class Sword : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.X) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.K) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.Space))
         {
             Fire();
             slash = true;

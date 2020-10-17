@@ -40,7 +40,7 @@ public class EnemyHp : MonoBehaviour
             {
                 invicibility = true;
 
-                invulnertimer = 5.0f;
+                invulnertimer = 2.0f;
 
                 var damage = collision.gameObject.GetComponent<POWERSCRIPT>();
 
