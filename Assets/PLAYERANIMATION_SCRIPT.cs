@@ -24,27 +24,39 @@ public class PLAYERANIMATION_SCRIPT : MonoBehaviour
             myAnimator.SetBool("Walk", true);
             myAnimator.SetBool("Slash", false);
 
+            myAnimator.SetBool("LowSlash", false);
+
         }
 
-        else if (myPlayerMovement.isMoving && myPlayerMovement.isGrounded&& Sword.midslash.slash ==false)
+        else if (myPlayerMovement.isMoving && myPlayerMovement.isGrounded&& Sword.midslash.slash == false && LowSword.lowslash.slash == false)
         {
             myAnimator.SetBool("Walk", true);
             myAnimator.SetBool("Slash", false);
+            myAnimator.SetBool("LowSlash", false);
 
         }
 
-        else if (myPlayerMovement.isMoving && myPlayerMovement.isGrounded && Sword.midslash.slash == true)
+        else if (myPlayerMovement.isMoving && myPlayerMovement.isGrounded && Sword.midslash.slash == true && LowSword.lowslash.slash ==false)
         {
             myAnimator.SetBool("Walk", true);
             myAnimator.SetBool("Slash", true);
+            myAnimator.SetBool("LowSlash", false);
 
         }
 
 
-        else if (!myPlayerMovement.isMoving && myPlayerMovement.isGrounded && Sword.midslash.slash == true)
+        else if (!myPlayerMovement.isMoving && myPlayerMovement.isGrounded && Sword.midslash.slash == true && LowSword.lowslash.slash == false)
         {
             myAnimator.SetBool("Walk", false);
             myAnimator.SetBool("Slash", true);
+            myAnimator.SetBool("LowSlash", false);
+
+        }
+        else if (!myPlayerMovement.isMoving && myPlayerMovement.isGrounded && Sword.midslash.slash == false && LowSword.lowslash.slash == true)
+        {
+            myAnimator.SetBool("Walk", false);
+            myAnimator.SetBool("Slash", false);
+            myAnimator.SetBool("LowSlash", true);
 
         }
         //walk end
@@ -52,6 +64,7 @@ public class PLAYERANIMATION_SCRIPT : MonoBehaviour
         {
             myAnimator.SetBool("Walk", false);
             myAnimator.SetBool("Slash", false);
+            myAnimator.SetBool("LowSlash", false);
 
         }
     }

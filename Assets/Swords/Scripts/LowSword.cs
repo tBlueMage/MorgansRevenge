@@ -6,9 +6,14 @@ public class LowSword : MonoBehaviour
 {
     public GameObject swordPrefab;
     public GameObject SwordSpawn;
+    public static LowSword lowslash;
 
-    public bool lowslash = false;
+    public bool slash = false;
 
+    void Awake()
+    {
+        lowslash = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -30,11 +35,10 @@ public class LowSword : MonoBehaviour
         {
             Fire();
           
-            lowslash = true;
         }
         else
         {
-            lowslash = false;
+           slash = false;
         }
     }
     void handleMovement()
@@ -73,9 +77,10 @@ public class LowSword : MonoBehaviour
 
             //give it force
             blade.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0));
+        slash = true;
 
-            //destroy after 2 seconds
-            Destroy(blade, 0.5f);
+        //destroy after 2 seconds
+        Destroy(blade, 0.5f);
         
     }
 
