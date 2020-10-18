@@ -8,11 +8,16 @@ public class Sword : MonoBehaviour
 
     public GameObject SwordSpawn;
 
-
+    public static Sword midslash;
     public bool slash = false;
 
 
     // Start is called before the first frame update
+
+     void Awake()
+    {
+        midslash = this;
+    }
     void Start()
     {
         var reference = GameObject.FindGameObjectWithTag("Player");
@@ -23,7 +28,7 @@ public class Sword : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    void  Update()
     {
         handleMovement();
 
@@ -33,9 +38,9 @@ public class Sword : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.Space))
         {
             Fire();
-            slash = true;
-
+            Debug.Log("true");
         }
+
 
         else
         {
@@ -78,7 +83,8 @@ public class Sword : MonoBehaviour
 
             //destroy after 2 seconds
             Destroy(blade, 0.5f);
-        
+        slash = true;
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
