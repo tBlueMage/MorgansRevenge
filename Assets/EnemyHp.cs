@@ -51,11 +51,14 @@ public class EnemyHp : MonoBehaviour
 
             }
         }
-      else  if (collision.gameObject.CompareTag("Hazard"))
+
+        else if (collision.gameObject.CompareTag("Hazard"))
         {
-            Enemyhealth = 0;
+
+            var damage = collision.gameObject.GetComponent<POWERSCRIPT>();
+            Enemyhealth -= damage.Damage;
         }
-       }
+    }
     void invulerability()
     {
         if (invicibility == true)

@@ -11,6 +11,7 @@ public class PLAYER_SCRIPT : MonoBehaviour
     //movement
     Rigidbody2D myBody;
 
+    public static PLAYER_SCRIPT character;
     Transform myTrans;
     public BoxCollider2D myBox;
     SpriteRenderer mySprite;
@@ -18,6 +19,9 @@ public class PLAYER_SCRIPT : MonoBehaviour
     public float invulnertimer;
     public float invulnertarget;
     public bool invicibility;
+    public bool death;
+    public float deathtimer;
+    public float deathtimertarget;
     public bool isGrounded = false;
     public bool isMoving = false;
     public bool isLeft = true;
@@ -25,8 +29,13 @@ public class PLAYER_SCRIPT : MonoBehaviour
     public float speedforce;
     public float bonusspeed;
     // Start is called before the first frame update
+     void Awake()
+    {
+        character = this;
+    }
     void Start()
     {
+        deathtimertarget = 5.0f;
         invulnertarget = 0.0f;
         invulnertimer = 0.0f;
         //how the sprites transfer
@@ -139,10 +148,24 @@ public class PLAYER_SCRIPT : MonoBehaviour
     {
         if (myBody.position.y < -5)
         {
-            CHASEN_SCRIPT.level.changeScene(2);
+            death = true;
+
         }
 
         if (Hp.value <= 0)
+        {
+
+            death = true;
+
+          
+        }
+
+        if (death == true)
+        {
+            deathtimer += Time.deltaTime;
+        }
+
+        if (deathtimer >= deathtimertarget)
         {
             CHASEN_SCRIPT.level.changeScene(2);
         }
@@ -154,21 +177,21 @@ public class PLAYER_SCRIPT : MonoBehaviour
         {
             CHASEN_SCRIPT.level.changeScene(3);
         }
-       else  if (collision.gameObject.CompareTag("Enemy"))
+        else if (collision.gameObject.CompareTag("Enemy"))
         {
-             if (invicibility == false)
+            if (invicibility == false)
             {
-                
-                    var damage = collision.gameObject.GetComponent<POWERSCRIPT>();
-                    Hp.value -= damage.Damage;
-                    invicibility = true;
+
+                var damage = collision.gameObject.GetComponent<POWERSCRIPT>();
+                Hp.value -= damage.Damage;
+                invicibility = true;
                 invulnertimer = 5.0f;
 
 
 
             }
 
-          else
+            else
             {
 
 
@@ -176,5 +199,13 @@ public class PLAYER_SCRIPT : MonoBehaviour
 
 
         }
+
+        else if (collision.gameObject.CompareTag("Hazard"))
+        {
+
+            var damage = collision.gameObject.GetComponent<POWERSCRIPT>();
+            Hp.value -= damage.Damage;
+        }
+
     }
 }

@@ -6,8 +6,9 @@ using UnityEngine;
 public class Fireball : MonoBehaviour
 {
 
-   
 
+    GameObject fireball;
+    
     public GameObject FireballPrefab;
     public GameObject FireballSpawn;
     bool righttrue;
@@ -29,8 +30,18 @@ public class Fireball : MonoBehaviour
 
 
                 if ((Input.GetKeyDown(KeyCode.O) &&!Input.GetKeyDown(KeyCode.S) && !Input.GetKeyDown(KeyCode.D) && !Input.GetKeyDown(KeyCode.W)))
-                {
-                    Fire();
+                {if (MP.mana.Mp.value >= 1)
+            {
+                Fire();
+
+                MP.mana.Mp.value -= 1;
+            }
+
+            else
+            {
+                MP.mana.Mp.value = 0;
+                Debug.Log("Fire");
+            }
                 }
 
 
@@ -60,7 +71,6 @@ public class Fireball : MonoBehaviour
     void Fire()
     {
         //have a bullet
-        GameObject fireball;
 
         Debug.Log("normalShot");
 
@@ -85,18 +95,18 @@ public class Fireball : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+     void OnTriggerEnter2D(Collider2D collision)
     {
         
 
-        if (collision.tag == "Fireball" || collision.tag == "Soldier")
+        if (collision.gameObject.CompareTag("Enemy"))
         {
 
-            Destroy(gameObject);
+            Destroy(fireball);
+
+        }
 
     }
-
-}
 
    
 }

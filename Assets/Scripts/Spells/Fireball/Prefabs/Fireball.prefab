@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 7793969263107320892}
   - component: {fileID: 2884469503250149656}
   - component: {fileID: 760772281868777602}
-  - component: {fileID: 8761673994991120259}
+  - component: {fileID: -160922039526695553}
   m_Layer: 10
   m_Name: Fireball
-  m_TagString: PlayerAttack
+  m_TagString: Fireball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -139,7 +139,7 @@ MonoBehaviour:
   ExplosionSpawn: {fileID: 8340247033174744010}
   timer: 0
   timerTarget: 0
---- !u!114 &8761673994991120259
+--- !u!114 &-160922039526695553
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,4 +151,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d44ded6b2cee694ebf2ff9ba14caacc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 2
+  Damage: 0

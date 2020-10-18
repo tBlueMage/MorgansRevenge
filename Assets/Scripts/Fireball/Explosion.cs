@@ -52,7 +52,7 @@ public class Explosion : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.tag == "Fireball" || collision.tag == "Soldier")
+        if (collision.gameObject.CompareTag("Enemy"))
         {
 
 

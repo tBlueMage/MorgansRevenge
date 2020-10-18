@@ -25,6 +25,7 @@ public class PLAYERANIMATION_SCRIPT : MonoBehaviour
             myAnimator.SetBool("Slash", false);
             myAnimator.SetBool("HighSlash", false);
             myAnimator.SetBool("LowSlash", false);
+            myAnimator.SetBool("Death", false);
 
         }
        else if (myPlayerMovement.isMoving && !myPlayerMovement.isGrounded && HighSword.HighSlash.highslash == true)
@@ -34,6 +35,7 @@ public class PLAYERANIMATION_SCRIPT : MonoBehaviour
             myAnimator.SetBool("Slash", false);
             myAnimator.SetBool("HighSlash", true);
             myAnimator.SetBool("LowSlash", false);
+            myAnimator.SetBool("Death", false);
 
         }
         else if (!myPlayerMovement.isMoving && !myPlayerMovement.isGrounded && HighSword.HighSlash.highslash == false)
@@ -43,15 +45,17 @@ public class PLAYERANIMATION_SCRIPT : MonoBehaviour
             myAnimator.SetBool("Slash", false);
             myAnimator.SetBool("HighSlash", false);
             myAnimator.SetBool("LowSlash", false);
+            myAnimator.SetBool("Death", false);
 
         }
-       else if (!myPlayerMovement.isMoving && !myPlayerMovement.isGrounded && HighSword.HighSlash.highslash == true)
+        else if (!myPlayerMovement.isMoving && !myPlayerMovement.isGrounded && HighSword.HighSlash.highslash == true)
         {
 
             myAnimator.SetBool("Walk", false);
             myAnimator.SetBool("Slash", false);
             myAnimator.SetBool("HighSlash", true);
             myAnimator.SetBool("LowSlash", false);
+            myAnimator.SetBool("Death", false);
 
         }
         else if (myPlayerMovement.isMoving && myPlayerMovement.isGrounded&& Sword.midslash.slash == false && LowSword.lowslash.slash == false)
@@ -60,6 +64,7 @@ public class PLAYERANIMATION_SCRIPT : MonoBehaviour
             myAnimator.SetBool("Slash", false);
             myAnimator.SetBool("LowSlash", false);
             myAnimator.SetBool("HighSlash", false);
+            myAnimator.SetBool("Death", false);
 
         }
 
@@ -69,6 +74,7 @@ public class PLAYERANIMATION_SCRIPT : MonoBehaviour
             myAnimator.SetBool("Slash", true);
             myAnimator.SetBool("LowSlash", false);
             myAnimator.SetBool("HighSlash", false);
+            myAnimator.SetBool("Death", false);
 
         }
 
@@ -79,6 +85,7 @@ public class PLAYERANIMATION_SCRIPT : MonoBehaviour
             myAnimator.SetBool("Slash", true);
             myAnimator.SetBool("LowSlash", false);
             myAnimator.SetBool("HighSlash", false);
+            myAnimator.SetBool("Death", false);
 
         }
         else if (!myPlayerMovement.isMoving && myPlayerMovement.isGrounded && Sword.midslash.slash == false && LowSword.lowslash.slash == true)
@@ -87,6 +94,16 @@ public class PLAYERANIMATION_SCRIPT : MonoBehaviour
             myAnimator.SetBool("Slash", false);
             myAnimator.SetBool("LowSlash", true);
             myAnimator.SetBool("HighSlash", false);
+            myAnimator.SetBool("Death", false);
+
+        }
+        else if(PLAYER_SCRIPT.character.death ==true)
+        {
+            myAnimator.SetBool("Walk", false);
+            myAnimator.SetBool("Slash", false);
+            myAnimator.SetBool("LowSlash", false);
+            myAnimator.SetBool("HighSlash", false);
+            myAnimator.SetBool("Death", true);
 
         }
         //walk end
@@ -96,6 +113,7 @@ public class PLAYERANIMATION_SCRIPT : MonoBehaviour
             myAnimator.SetBool("Slash", false);
             myAnimator.SetBool("LowSlash", false);
             myAnimator.SetBool("HighSlash", false);
+            myAnimator.SetBool("Death", false);
 
         }
     }
