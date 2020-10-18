@@ -6,15 +6,18 @@ public class HighSword : MonoBehaviour
 {
     public GameObject swordPrefab;
     public GameObject SwordSpawn;
-
-
+    public static HighSword HighSlash;
     public bool highslash = false;
+
+    void Awake()
+    {
+        HighSlash = this;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
 
-        var reference = GameObject.FindGameObjectWithTag("Player");
 
     }
 
@@ -28,7 +31,6 @@ public class HighSword : MonoBehaviour
 
         if ((Input.GetKey(KeyCode.Space) && Input.GetKeyDown(KeyCode.K)) || (Input.GetKeyDown(KeyCode.K) && Input.GetKey(KeyCode.Space)))
         {
-            highslash = true;
             Fire();
         }
 
@@ -73,9 +75,10 @@ public class HighSword : MonoBehaviour
 
             //give it force
             blade.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0));
+        highslash = true;
 
-            //destroy after 2 seconds
-            Destroy(blade, 0.5f);
+        //destroy after 2 seconds
+        Destroy(blade, 0.5f);
         
 
             

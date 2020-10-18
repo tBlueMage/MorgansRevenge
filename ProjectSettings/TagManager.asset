@@ -23,6 +23,7 @@ TagManager:
   - Sword
   - WindWall
   - PlayerAttack
+  - Hazard
   layers:
   - Default
   - TransparentFX

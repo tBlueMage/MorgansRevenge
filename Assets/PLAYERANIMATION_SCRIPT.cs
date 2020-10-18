@@ -18,21 +18,48 @@ public class PLAYERANIMATION_SCRIPT : MonoBehaviour
     void Update()
     {
             //walk
-        if (myPlayerMovement.isMoving && !myPlayerMovement.isGrounded)
+        if (myPlayerMovement.isMoving && !myPlayerMovement.isGrounded && HighSword.HighSlash.highslash == false)
         {    
           
             myAnimator.SetBool("Walk", true);
             myAnimator.SetBool("Slash", false);
-
+            myAnimator.SetBool("HighSlash", false);
             myAnimator.SetBool("LowSlash", false);
 
         }
+       else if (myPlayerMovement.isMoving && !myPlayerMovement.isGrounded && HighSword.HighSlash.highslash == true)
+        {
 
+            myAnimator.SetBool("Walk", false);
+            myAnimator.SetBool("Slash", false);
+            myAnimator.SetBool("HighSlash", true);
+            myAnimator.SetBool("LowSlash", false);
+
+        }
+        else if (!myPlayerMovement.isMoving && !myPlayerMovement.isGrounded && HighSword.HighSlash.highslash == false)
+        {
+
+            myAnimator.SetBool("Walk", false);
+            myAnimator.SetBool("Slash", false);
+            myAnimator.SetBool("HighSlash", false);
+            myAnimator.SetBool("LowSlash", false);
+
+        }
+       else if (!myPlayerMovement.isMoving && !myPlayerMovement.isGrounded && HighSword.HighSlash.highslash == true)
+        {
+
+            myAnimator.SetBool("Walk", false);
+            myAnimator.SetBool("Slash", false);
+            myAnimator.SetBool("HighSlash", true);
+            myAnimator.SetBool("LowSlash", false);
+
+        }
         else if (myPlayerMovement.isMoving && myPlayerMovement.isGrounded&& Sword.midslash.slash == false && LowSword.lowslash.slash == false)
         {
             myAnimator.SetBool("Walk", true);
             myAnimator.SetBool("Slash", false);
             myAnimator.SetBool("LowSlash", false);
+            myAnimator.SetBool("HighSlash", false);
 
         }
 
@@ -41,6 +68,7 @@ public class PLAYERANIMATION_SCRIPT : MonoBehaviour
             myAnimator.SetBool("Walk", true);
             myAnimator.SetBool("Slash", true);
             myAnimator.SetBool("LowSlash", false);
+            myAnimator.SetBool("HighSlash", false);
 
         }
 
@@ -50,6 +78,7 @@ public class PLAYERANIMATION_SCRIPT : MonoBehaviour
             myAnimator.SetBool("Walk", false);
             myAnimator.SetBool("Slash", true);
             myAnimator.SetBool("LowSlash", false);
+            myAnimator.SetBool("HighSlash", false);
 
         }
         else if (!myPlayerMovement.isMoving && myPlayerMovement.isGrounded && Sword.midslash.slash == false && LowSword.lowslash.slash == true)
@@ -57,6 +86,7 @@ public class PLAYERANIMATION_SCRIPT : MonoBehaviour
             myAnimator.SetBool("Walk", false);
             myAnimator.SetBool("Slash", false);
             myAnimator.SetBool("LowSlash", true);
+            myAnimator.SetBool("HighSlash", false);
 
         }
         //walk end
@@ -65,6 +95,7 @@ public class PLAYERANIMATION_SCRIPT : MonoBehaviour
             myAnimator.SetBool("Walk", false);
             myAnimator.SetBool("Slash", false);
             myAnimator.SetBool("LowSlash", false);
+            myAnimator.SetBool("HighSlash", false);
 
         }
     }
