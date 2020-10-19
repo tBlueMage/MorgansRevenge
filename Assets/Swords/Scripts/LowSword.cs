@@ -80,7 +80,7 @@ public class LowSword : MonoBehaviour
         slash = true;
 
         //destroy after 2 seconds
-        Destroy(blade, 0.5f);
+        Destroy(blade, 0.25f);
         
     }
 

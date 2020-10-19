@@ -82,7 +82,7 @@ public class Sword : MonoBehaviour
             blade.GetComponent<Rigidbody2D>().MovePosition(SwordSpawn.transform.position);
 
             //destroy after 2 seconds
-            Destroy(blade, 0.5f);
+            Destroy(blade, 0.10f);
         slash = true;
 
     }

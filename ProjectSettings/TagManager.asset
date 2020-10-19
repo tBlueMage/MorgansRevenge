@@ -24,6 +24,7 @@ TagManager:
   - WindWall
   - PlayerAttack
   - Hazard
+  - Loot
   layers:
   - Default
   - TransparentFX
