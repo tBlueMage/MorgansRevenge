@@ -6,13 +6,19 @@ using UnityEngine;
 public class Fireball : MonoBehaviour
 {
 
-
+    public static Fireball fire;
     GameObject fireball;
-    
+   public bool shoot;
     public GameObject FireballPrefab;
     public GameObject FireballSpawn;
     bool righttrue;
     // Start is called before the first frame update
+
+     void Awake()
+    {
+
+        fire = this;
+    }
     void Start()
     {
 
@@ -39,13 +45,18 @@ public class Fireball : MonoBehaviour
 
             else
             {
+                shoot = false;
+
                 MP.mana.Mp.value = 0;
                 Debug.Log("Fire");
             }
                 }
 
 
-
+        else
+        {
+            shoot = false;
+        }
             
 
     }
@@ -90,23 +101,13 @@ public class Fireball : MonoBehaviour
         //destroy after 2 seconds
         Destroy(fireball, 1.0f);
 
-       
+        shoot = true;
 
     }
 
 
-     void OnTriggerEnter2D(Collider2D collision)
-    {
-        
-
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-
-            Destroy(fireball);
-
-        }
-
-    }
+     
+    
 
    
 }

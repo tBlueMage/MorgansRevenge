@@ -7,7 +7,7 @@ public class enemydrop : MonoBehaviour
 {//how the dropprefab is called
     //how the objects drop
     public Transform spawn;
-    EnemyHp hp;
+    EnemyHp dead;
     public GameObject Bsnack;
     public GameObject Bmeal;
     public GameObject Mvial;
@@ -24,7 +24,7 @@ public class enemydrop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hp = GetComponent<EnemyHp>();
+        dead = GetComponent<EnemyHp>();
 
         //the range of the objects being dropped
         Drop = Random.Range(1, 7);
@@ -43,8 +43,9 @@ public class enemydrop : MonoBehaviour
     void Dead()
     {
 
-        if (hp.Enemyhealth <= 0)
+        if (dead.drop ==1)
         {
+            dead.drop++;
             //when the player collides with a test dummy drop an object from 1 to 7
             if (Drop == 1)
             {

@@ -10,6 +10,7 @@ public class PLAYER_SCRIPT : MonoBehaviour
 
     //movement
     Rigidbody2D myBody;
+    KNOCKBACK_SCRIPT struck;
 
     public static PLAYER_SCRIPT character;
     Transform myTrans;
@@ -42,6 +43,8 @@ public class PLAYER_SCRIPT : MonoBehaviour
         myBody = GetComponent<Rigidbody2D>();
         mySprite = GetComponent<SpriteRenderer>();
         myTrans = GetComponent<Transform>();
+        struck = GetComponent<KNOCKBACK_SCRIPT>();
+
     }
 
     // Update is called once per frame
@@ -130,10 +133,13 @@ public class PLAYER_SCRIPT : MonoBehaviour
         {
 
             invulnertimer -= Time.deltaTime;
+            mySprite.color = new Color32(255, 0, 0, 255);
 
             Debug.Log(invulnertimer);
             if (invulnertimer <= invulnertarget)
             {
+                mySprite.color = new Color32(255, 255, 255, 255);
+
                 invicibility = false;
                 Debug.Log("invicibilitygone");
                 invulnertimer = 0.0f;
@@ -177,15 +183,24 @@ public class PLAYER_SCRIPT : MonoBehaviour
         {
             CHASEN_SCRIPT.level.changeScene(3);
         }
+
+        else if (collision.gameObject.CompareTag("Hazard"))
+        {
+
+            var damage = collision.gameObject.GetComponent<POWERSCRIPT>();
+            Hp.value -= damage.Damage;
+        }
         else if (collision.gameObject.CompareTag("Enemy"))
         {
             if (invicibility == false)
             {
+                struck.knockBack = true;
+
 
                 var damage = collision.gameObject.GetComponent<POWERSCRIPT>();
                 Hp.value -= damage.Damage;
                 invicibility = true;
-                invulnertimer = 5.0f;
+                invulnertimer = 3.0f;
 
 
 
@@ -200,12 +215,6 @@ public class PLAYER_SCRIPT : MonoBehaviour
 
         }
 
-        else if (collision.gameObject.CompareTag("Hazard"))
-        {
-
-            var damage = collision.gameObject.GetComponent<POWERSCRIPT>();
-            Hp.value -= damage.Damage;
-        }
 
     }
 }

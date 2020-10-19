@@ -1,12 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using UnityEngine;
 
 public class EnemyHp : MonoBehaviour
 {
+    Animator myAnimator;
+
     public float invulnertimer;
     public float invulnertarget;
     public bool invicibility;
+    public bool death;
+    public int drop;
+    public float deathtimer;
+    public float deathtimertarget;
+    public float droptimer;
+    public float droptimertarget;
     //enemys hp
     public int Enemyhealth = 10;
     //player swords damage
@@ -18,8 +27,13 @@ public class EnemyHp : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-
     {
+        myAnimator = GetComponent<Animator>();
+
+        deathtimertarget = 5.0f;
+        droptimertarget = 4.99f;
+
+        drop = 0;
         invulnertarget = 0.0f;
         invulnertimer = 0.0f;
         //how the player and damages get found
@@ -83,7 +97,33 @@ public class EnemyHp : MonoBehaviour
     void EnemyDead() {
         if (Enemyhealth <= 0)
         {
-            Destroy(gameObject);
+            myAnimator.SetBool("Death", true);
+
+
+
+            drop++;
+            if (death == true)
+            {
+                if (deathtimer >= deathtimertarget)
+                {
+
+
+                    Destroy(gameObject);
+                }
+
+                
+                else
+                {
+                    deathtimer += Time.deltaTime;
+                }
+
+
+            }
+
+            else
+            {
+                death = true;
+            }
         }
-                         }
+    }
 }
