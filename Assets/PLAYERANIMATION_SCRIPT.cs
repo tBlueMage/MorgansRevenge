@@ -27,7 +27,7 @@ public class PLAYERANIMATION_SCRIPT : MonoBehaviour
             myAnimator.SetBool("LowSlash", false);
             myAnimator.SetBool("Death", false);
             myAnimator.SetBool("Jump", true);
-            myAnimator.SetBool("Fireball", true);
+            myAnimator.SetBool("Fireball", false);
 
         }
        else if (myPlayerMovement.isMoving && !myPlayerMovement.isGrounded && HighSword.HighSlash.highslash == true)

@@ -30,8 +30,8 @@ public class EnemyHp : MonoBehaviour
     {
         myAnimator = GetComponent<Animator>();
 
-        deathtimertarget = 5.0f;
-        droptimertarget = 4.99f;
+        deathtimertarget = .05f;
+        droptimertarget = .49f;
 
         drop = 0;
         invulnertarget = 0.0f;
