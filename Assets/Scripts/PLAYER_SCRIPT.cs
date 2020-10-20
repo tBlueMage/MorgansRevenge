@@ -17,6 +17,7 @@ public class PLAYER_SCRIPT : MonoBehaviour
     public BoxCollider2D myBox;
     SpriteRenderer mySprite;
     [SerializeField] public LayerMask groundLayer;
+    public int coin;
     public float invulnertimer;
     public float invulnertarget;
     public bool invicibility;
@@ -36,6 +37,7 @@ public class PLAYER_SCRIPT : MonoBehaviour
     }
     void Start()
     {
+        
         deathtimertarget = 5.0f;
         invulnertarget = 0.0f;
         invulnertimer = 0.0f;
@@ -183,7 +185,30 @@ public class PLAYER_SCRIPT : MonoBehaviour
         {
             CHASEN_SCRIPT.level.changeScene(3);
         }
+        else if (collision.gameObject.CompareTag("Coin"))
+        {
+            coin++;
 
+
+        }
+        else if (collision.gameObject.CompareTag("BSnack"))
+        {
+            Hp.value += 2;
+
+
+        }
+        else if (collision.gameObject.CompareTag("Mvial"))
+        {
+            MP.mana.Mp.value += 2;
+
+
+        }
+        else if (collision.gameObject.CompareTag("Cbag"))
+        {
+            coin+= 5;
+
+
+        }
         else if (collision.gameObject.CompareTag("Hazard"))
         {
 
@@ -206,6 +231,7 @@ public class PLAYER_SCRIPT : MonoBehaviour
 
             }
 
+       
             else
             {
 

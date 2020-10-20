@@ -38,6 +38,7 @@ public class Fireball : MonoBehaviour
                 if ((Input.GetKeyDown(KeyCode.O) &&!Input.GetKeyDown(KeyCode.S) && !Input.GetKeyDown(KeyCode.D) && !Input.GetKeyDown(KeyCode.W)))
                 {if (MP.mana.Mp.value >= 1)
             {
+
                 Fire();
 
                 MP.mana.Mp.value -= 1;
@@ -81,6 +82,9 @@ public class Fireball : MonoBehaviour
     }
     void Fire()
     {
+        shoot = true;
+
+
         //have a bullet
 
         Debug.Log("normalShot");
@@ -101,7 +105,6 @@ public class Fireball : MonoBehaviour
         //destroy after 2 seconds
         Destroy(fireball, 1.0f);
 
-        shoot = true;
 
     }
 

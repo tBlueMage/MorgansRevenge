@@ -3,31 +3,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
-public class enemydrop : MonoBehaviour
+public class DROP_SCRIPT : MonoBehaviour
 {//how the dropprefab is called
+    
     //how the objects drop
     public Transform spawn;
-    EnemyHp dead;
+    public DETHSPWN_SCRIPT drop;
     public GameObject Bsnack;
-    public GameObject Bmeal;
+    //public GameObject Bmeal;
     public GameObject Mvial;
-    public GameObject Mpotion;
+   // public GameObject Mpotion;
     public GameObject GoldCoin;
     public GameObject CoinBag;
-    public GameObject GoldBar;
+   // public GameObject GoldBar;
     public GameObject playeref;
     //player is called
     PLAYER_SCRIPT players;
     //int for the drop
-    public int Drop;
+    public int item;
 
     // Start is called before the first frame update
     void Start()
     {
-        dead = GetComponent<EnemyHp>();
 
+        drop = GetComponent<DETHSPWN_SCRIPT>();
+
+      
         //the range of the objects being dropped
-        Drop = Random.Range(1, 7);
+        item = Random.Range(1, 4);
         
         //how player is called
         var player = GameObject.FindWithTag("Player");
@@ -36,26 +39,28 @@ public class enemydrop : MonoBehaviour
 
      void Update()
     {
-        Dead();
+        LootDrop();
 
     }
 
-    void Dead()
+    void LootDrop()
     {
 
-        if (dead.drop ==1)
+        if (drop.itemdrop == true)
         {
-            dead.drop++;
+            Debug.Log("hi tim");
+            item = Random.Range(1, 4);
+            drop.itemdrop = false;
             //when the player collides with a test dummy drop an object from 1 to 7
-            if (Drop == 1)
+            if (item == 1)
             {
                 GameObject drop1;
 
-                drop1 = (Instantiate(Bmeal, spawn.transform.position, transform.rotation)) as GameObject;
+                drop1 = (Instantiate(CoinBag, spawn.transform.position, transform.rotation)) as GameObject;
                 drop1.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0));
 
             }
-            if (Drop == 2)
+            if (item == 2)
             {
                 GameObject drop2;
 
@@ -63,7 +68,7 @@ public class enemydrop : MonoBehaviour
                 drop2.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0));
 
             }
-            if (Drop == 3)
+            if (item == 3)
             {
                 GameObject drop3;
 
@@ -71,15 +76,15 @@ public class enemydrop : MonoBehaviour
                 drop3.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0));
 
             }
-            if (Drop == 4)
+            if (item == 4)
             {
                 GameObject drop4;
-                drop4 = (Instantiate(Mpotion, spawn.transform.position, transform.rotation)) as GameObject;
+                drop4 = (Instantiate(GoldCoin, spawn.transform.position, transform.rotation)) as GameObject;
                 drop4.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0));
 
             }
-
-            if (Drop == 5)
+            /*
+            if (item == 5)
             {
                 GameObject drop5;
 
@@ -88,14 +93,14 @@ public class enemydrop : MonoBehaviour
 
             }
 
-            if (Drop == 6)
+            if (item == 6)
             {
                 GameObject drop6;
                 drop6 = (Instantiate(CoinBag, spawn.transform.position, transform.rotation)) as GameObject;
                 drop6.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0));
 
             }
-            if (Drop == 7)
+            if (item == 7)
             {
                 GameObject drop7;
 
@@ -104,9 +109,8 @@ public class enemydrop : MonoBehaviour
 
             }
             //resets the drop range for the item drop
-            Drop = Random.Range(1, 7);
 
-
+    */
         }
     }
     

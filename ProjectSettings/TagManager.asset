@@ -25,6 +25,12 @@ TagManager:
   - PlayerAttack
   - Hazard
   - Loot
+  - Crit
+  - Damage2
+  - Fkey
+  - Frostkey
+  - Damage1
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -37,8 +43,8 @@ TagManager:
   - Ground
   - Enemy
   - PlayerAttack
-  - 
-  - 
+  - LootLayer
+  - Player
   - 
   - 
   - 
