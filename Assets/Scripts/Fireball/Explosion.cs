@@ -87,6 +87,23 @@ public class Explosion : MonoBehaviour
             Destroy(Explosion, 1.0f);
         }
 
+        else if (collision.gameObject.CompareTag("Loot"))
+        {
+            Destroy(gameObject);
+
+            GameObject Explosion;
+
+            Debug.Log("normalShot");
+
+            //make a bullet
+            Explosion = (Instantiate(ExplosionPrefab, ExplosionSpawn.transform.position, transform.rotation)) as GameObject;
+
+            //give it force
+            Explosion.GetComponent<Rigidbody2D>().AddForce(new Vector2(100, 0));
+
+            //destroy after 2 seconds
+            Destroy(Explosion, 1.0f);
+        }
     }
 
 }

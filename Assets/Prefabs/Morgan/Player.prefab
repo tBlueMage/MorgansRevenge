@@ -114,7 +114,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3173428338934355870}
   - component: {fileID: 3173428338934355871}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 3173428338938420685}
   - component: {fileID: 3173428338938420682}
   - component: {fileID: 3173428338938420683}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -377,7 +377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3173428339036221070}
   - component: {fileID: 3173428339036221071}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Frost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,7 +423,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3173428339354954016}
   - component: {fileID: 3173428339354954017}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: lighting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +469,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3173428339421716453}
   - component: {fileID: 3173428339421716450}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: jump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -525,7 +525,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3173428339580161658}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: spellHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -558,7 +558,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3173428339938151469}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: swordspawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -598,6 +598,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HighSwordSpawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 5416735144281279303, guid: 16b466a7c8db66249adcb8e407567806,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5711876058648946154, guid: 16b466a7c8db66249adcb8e407567806,
         type: 3}
@@ -740,6 +745,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LowSwordSpawn
       objectReference: {fileID: 0}
+    - target: {fileID: 5944738435307059987, guid: 2f1c228973623854bb5264a36df7e814,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f1c228973623854bb5264a36df7e814, type: 3}
 --- !u!4 &7704712123532949169 stripped
@@ -765,6 +775,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: swordspawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 3178213162077795179, guid: a889645222df6e44294e301b781602f2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4811405478504069014, guid: a889645222df6e44294e301b781602f2,
         type: 3}

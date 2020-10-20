@@ -66,8 +66,9 @@ GameObject:
   - component: {fileID: 3192431363743399487}
   - component: {fileID: 3192431363743399484}
   - component: {fileID: 3192431363743399486}
+  - component: {fileID: 6978406691939490165}
   m_Layer: 9
-  m_Name: Enemy
+  m_Name: War Dog
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,17 +166,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afbba703221303a4c9c8a1e30dd3a3c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawn: {fileID: 3192431363743399878}
   invulnertimer: 0
   invulnertarget: 0
   invicibility: 0
-  death: 0
-  drop: 0
-  deathtimer: 0
-  deathtimertarget: 0
-  droptimer: 0
-  droptimertarget: 0
+  lootdrop: 0
+  isdead: 0
+  Bsnack: {fileID: 2465739114448873993, guid: ed46b2b3757693a4cbe3d1579af4af2d, type: 3}
+  Bmeal: {fileID: 586773364701114417, guid: 90b6616e1915d114b962d995821a9481, type: 3}
+  Mvial: {fileID: 5667388634067837605, guid: 53d0e0ac2e2a70a4b80a0a1f1634b34e, type: 3}
+  Mpotion: {fileID: 181984596237373877, guid: 2f761545a091a5449a58ce89e166ca79, type: 3}
+  GoldCoin: {fileID: 462948464314369928, guid: 6ecc1ff0e5388f6469c65e1797ad7ea8, type: 3}
+  CoinBag: {fileID: 8006021749900450716, guid: 916c8926458d03a4b95d4b165895e7ee, type: 3}
+  GoldBar: {fileID: 6806969866165904133, guid: b501147b54790d4439c541085b4e2616, type: 3}
+  playeref: {fileID: 3173428338938420722, guid: c37bfe1febf17d345865e072030ec2ec,
+    type: 3}
   Enemyhealth: 4
-  MyRef1: {fileID: 0}
 --- !u!50 &3192431363743399872
 Rigidbody2D:
   serializedVersion: 4
@@ -262,6 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawn: {fileID: 3192431362729610163}
+  drop: {fileID: 0}
   Bsnack: {fileID: 2465739114448873993, guid: ed46b2b3757693a4cbe3d1579af4af2d, type: 3}
   Bmeal: {fileID: 586773364701114417, guid: 90b6616e1915d114b962d995821a9481, type: 3}
   Mvial: {fileID: 5667388634067837605, guid: 53d0e0ac2e2a70a4b80a0a1f1634b34e, type: 3}
@@ -270,8 +277,9 @@ MonoBehaviour:
     type: 3}
   CoinBag: {fileID: 8006021749900450716, guid: 916c8926458d03a4b95d4b165895e7ee, type: 3}
   GoldBar: {fileID: 6806969866165904133, guid: b501147b54790d4439c541085b4e2616, type: 3}
-  playeref: {fileID: 0}
-  Drop: 0
+  playeref: {fileID: 3173428338938420722, guid: c37bfe1febf17d345865e072030ec2ec,
+    type: 3}
+  item: 0
 --- !u!114 &3192431363743399487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,3 +327,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6978406691939490165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3192431363743399877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ed4961cb1fd1a247911826f3ae4cd46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExplosionPrefab: {fileID: 3450917013773705661, guid: fc04b3781d7a9b34ebf6ad3210596b0b,
+    type: 3}
+  ExplosionSpawn: {fileID: 3192431363743399877}
+  itemdrop: 0
