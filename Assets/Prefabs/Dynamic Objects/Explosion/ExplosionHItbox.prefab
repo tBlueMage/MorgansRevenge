@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: -6470356283953952637}
   - component: {fileID: 6774942653589340337}
   - component: {fileID: 8508880525761907103}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ExplosionHItbox
-  m_TagString: PlayerAttack
+  m_TagString: Fireball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +100,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8137120130738530008}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -128,7 +128,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.7
 --- !u!114 &8508880525761907103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,6 +224,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Explosion (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3450917013773705661, guid: fc04b3781d7a9b34ebf6ad3210596b0b,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450917013773705661, guid: fc04b3781d7a9b34ebf6ad3210596b0b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc04b3781d7a9b34ebf6ad3210596b0b, type: 3}
 --- !u!4 &843301570324932451 stripped
@@ -313,6 +323,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Explosion (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450917013773705661, guid: fc04b3781d7a9b34ebf6ad3210596b0b,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450917013773705661, guid: fc04b3781d7a9b34ebf6ad3210596b0b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc04b3781d7a9b34ebf6ad3210596b0b, type: 3}
@@ -404,6 +424,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Explosion (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3450917013773705661, guid: fc04b3781d7a9b34ebf6ad3210596b0b,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450917013773705661, guid: fc04b3781d7a9b34ebf6ad3210596b0b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc04b3781d7a9b34ebf6ad3210596b0b, type: 3}
 --- !u!4 &2274022224539716696 stripped
@@ -493,6 +523,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Explosion (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450917013773705661, guid: fc04b3781d7a9b34ebf6ad3210596b0b,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450917013773705661, guid: fc04b3781d7a9b34ebf6ad3210596b0b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc04b3781d7a9b34ebf6ad3210596b0b, type: 3}
@@ -584,6 +624,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Explosion (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 3450917013773705661, guid: fc04b3781d7a9b34ebf6ad3210596b0b,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450917013773705661, guid: fc04b3781d7a9b34ebf6ad3210596b0b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc04b3781d7a9b34ebf6ad3210596b0b, type: 3}
 --- !u!4 &1333662248223260926 stripped
@@ -673,6 +723,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Explosion (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450917013773705661, guid: fc04b3781d7a9b34ebf6ad3210596b0b,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450917013773705661, guid: fc04b3781d7a9b34ebf6ad3210596b0b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc04b3781d7a9b34ebf6ad3210596b0b, type: 3}
@@ -764,6 +824,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Explosion (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3450917013773705661, guid: fc04b3781d7a9b34ebf6ad3210596b0b,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450917013773705661, guid: fc04b3781d7a9b34ebf6ad3210596b0b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc04b3781d7a9b34ebf6ad3210596b0b, type: 3}
 --- !u!4 &5037006024861902084 stripped
@@ -853,6 +923,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Explosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450917013773705661, guid: fc04b3781d7a9b34ebf6ad3210596b0b,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450917013773705661, guid: fc04b3781d7a9b34ebf6ad3210596b0b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc04b3781d7a9b34ebf6ad3210596b0b, type: 3}

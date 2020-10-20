@@ -8,16 +8,17 @@ public class PLAYER_SCRIPT : MonoBehaviour
 {
     public Slider Hp;
 
-    //movement
+    public CHASEN_SCRIPT level;
+    public int fireunlock;
     Rigidbody2D myBody;
     KNOCKBACK_SCRIPT struck;
-
-    public static PLAYER_SCRIPT character;
+   public Text coinvalue;
     Transform myTrans;
     public BoxCollider2D myBox;
     SpriteRenderer mySprite;
     [SerializeField] public LayerMask groundLayer;
     public int coin;
+    
     public float invulnertimer;
     public float invulnertarget;
     public bool invicibility;
@@ -31,13 +32,11 @@ public class PLAYER_SCRIPT : MonoBehaviour
     public float speedforce;
     public float bonusspeed;
     // Start is called before the first frame update
-     void Awake()
-    {
-        character = this;
-    }
+   
     void Start()
     {
-        
+        coin = PlayerPrefs.GetInt("newcoin");
+        fireunlock = PlayerPrefs.GetInt("unlocked");
         deathtimertarget = 5.0f;
         invulnertarget = 0.0f;
         invulnertimer = 0.0f;
@@ -52,6 +51,9 @@ public class PLAYER_SCRIPT : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        coinvalue.text = coin.ToString();
+
+   
         checkForGround();
         handleMovement();
 
@@ -175,21 +177,37 @@ public class PLAYER_SCRIPT : MonoBehaviour
 
         if (deathtimer >= deathtimertarget)
         {
-            CHASEN_SCRIPT.level.changeScene(2);
+            PlayerPrefs.SetInt("newcoin", coin);
+            PlayerPrefs.SetInt("unlocked", fireunlock);
+
+            level.changeScene(2);
         }
+    }
+
+   public void Cost()
+    {
+      
+       fireunlock = 1;
+            coin -= 5;
+
+        PlayerPrefs.SetInt("newcoin", coin);
+        PlayerPrefs.SetInt("unlocked", fireunlock);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player" || collision.tag == "Win")
         {
-            CHASEN_SCRIPT.level.changeScene(3);
+            PlayerPrefs.SetInt("newcoin", coin);
+            PlayerPrefs.SetInt("unlocked", fireunlock);
+
+            level.changeScene(4);
         }
         else if (collision.gameObject.CompareTag("Coin"))
         {
             coin++;
 
-
+            coinvalue.text = coin+ "$";
         }
         else if (collision.gameObject.CompareTag("BSnack"))
         {
@@ -207,6 +225,7 @@ public class PLAYER_SCRIPT : MonoBehaviour
         {
             coin+= 5;
 
+            coinvalue.text = coin + "$";
 
         }
         else if (collision.gameObject.CompareTag("Hazard"))

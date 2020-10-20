@@ -101,20 +101,11 @@ public class PLAYERANIMATION_SCRIPT : MonoBehaviour
             myAnimator.SetBool("HighSlash", false);
             myAnimator.SetBool("Death", false);
             myAnimator.SetBool("Fireball", false);
-
-        }
-
-        else if (myPlayerMovement.isMoving && myPlayerMovement.isGrounded && Sword.midslash.slash == true && LowSword.lowslash.slash ==false)
-        {
-            myAnimator.SetBool("Walk", true);
-            myAnimator.SetBool("Slash", true);
-            myAnimator.SetBool("LowSlash", false);
-            myAnimator.SetBool("HighSlash", false);
-            myAnimator.SetBool("Death", false);
-            myAnimator.SetBool("Fireball", false);
             myAnimator.SetBool("Jump", false);
 
         }
+
+      
 
 
         else if (!myPlayerMovement.isMoving && myPlayerMovement.isGrounded && Sword.midslash.slash == true && LowSword.lowslash.slash == false)
@@ -139,7 +130,7 @@ public class PLAYERANIMATION_SCRIPT : MonoBehaviour
             myAnimator.SetBool("Jump", false);
 
         }
-        else if(PLAYER_SCRIPT.character.death ==true)
+        else if(myPlayerMovement.death==true)
         {
             myAnimator.SetBool("Jump", false);
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WATTILE_SCRIPT : MonoBehaviour
 {
+    public CHASEN_SCRIPT level;
 
     public bool isFrozen;
     public bool isSurface;
@@ -25,7 +26,7 @@ public class WATTILE_SCRIPT : MonoBehaviour
     {
         if (collision.tag == "Player" || collision.tag == "Water")
         {
-            CHASEN_SCRIPT.level.changeScene(2);
+            level.changeScene(2);
         }
     }
 }

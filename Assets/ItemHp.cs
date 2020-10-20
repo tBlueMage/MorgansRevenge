@@ -140,7 +140,13 @@ public class ItemHp : MonoBehaviour
 
            
         }
+        else if (collision.gameObject.CompareTag("Fireball"))
+        {
 
+            var damage = collision.gameObject.GetComponent<POWERSCRIPT>();
+
+            ItemHealth -= damage.Damage;
+        }
         else if (collision.gameObject.CompareTag("Hazard"))
         {
 

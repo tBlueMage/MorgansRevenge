@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Fireball : MonoBehaviour
-{
+{ public PLAYER_SCRIPT unlock;
 
     public static Fireball fire;
     GameObject fireball;
@@ -34,14 +34,25 @@ public class Fireball : MonoBehaviour
 
         handleMovement();
 
-
-                if ((Input.GetKeyDown(KeyCode.O) &&!Input.GetKeyDown(KeyCode.S) && !Input.GetKeyDown(KeyCode.D) && !Input.GetKeyDown(KeyCode.W)))
-                {if (MP.mana.Mp.value >= 1)
+       
+            if ((Input.GetKeyDown(KeyCode.O) && !Input.GetKeyDown(KeyCode.S) && !Input.GetKeyDown(KeyCode.D) && !Input.GetKeyDown(KeyCode.W)))
+        {
+            if (unlock.fireunlock == 1)
             {
+                if (MP.mana.Mp.value >= 1)
+                {
 
-                Fire();
+                    Fire();
 
-                MP.mana.Mp.value -= 1;
+                    MP.mana.Mp.value -= 1;
+                }
+                else
+                {
+                    shoot = false;
+
+                    MP.mana.Mp.value = 0;
+                    Debug.Log("Fire");
+                }
             }
 
             else
@@ -51,9 +62,9 @@ public class Fireball : MonoBehaviour
                 MP.mana.Mp.value = 0;
                 Debug.Log("Fire");
             }
-                }
 
 
+        }
         else
         {
             shoot = false;

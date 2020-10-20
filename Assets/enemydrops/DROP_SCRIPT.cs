@@ -48,7 +48,7 @@ public class DROP_SCRIPT : MonoBehaviour
 
         if (drop.itemdrop == true)
         {
-            Debug.Log("hi tim");
+            
             item = Random.Range(1, 4);
             drop.itemdrop = false;
             //when the player collides with a test dummy drop an object from 1 to 7

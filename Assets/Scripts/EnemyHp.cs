@@ -71,7 +71,25 @@ public class EnemyHp : MonoBehaviour
 
             }
         }
+       else if (collision.gameObject.CompareTag("Fireball"))
+        {
+            if (invicibility == false)
+            {
+                invicibility = true;
 
+                invulnertimer = 2.0f;
+
+                var damage = collision.gameObject.GetComponent<POWERSCRIPT>();
+
+                Enemyhealth -= damage.Damage;
+
+                struck.knockBack = true;
+                Debug.Log(Enemyhealth);
+
+            }
+
+
+        }
         else if (collision.gameObject.CompareTag("Hazard"))
         {
 

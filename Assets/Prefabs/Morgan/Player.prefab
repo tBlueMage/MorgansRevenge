@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbbd5b4898799e9498f75869ea2ab5ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unlock: {fileID: 3173428338938420723}
   shoot: 0
   FireballPrefab: {fileID: 8340247033174744010, guid: 72e3b4952a1be0a488bcd582302a722f,
     type: 3}
@@ -277,6 +278,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hp: {fileID: 0}
+  level: {fileID: 0}
+  fireunlock: 0
+  coinvalue: {fileID: 0}
   myBox: {fileID: 3173428339421716450}
   groundLayer:
     serializedVersion: 2
@@ -306,6 +310,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac867303fe1d19743b2167d26df104bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coin: 0
+  fire: 0
 --- !u!70 &3173428338938420721
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
