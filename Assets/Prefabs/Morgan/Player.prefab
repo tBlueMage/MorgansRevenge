@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shoot: 0
-  FireballPrefab: {fileID: 8340247033174744010, guid: f5a0ba16dc95cd54bbe3827a05f7a3e8,
+  FireballPrefab: {fileID: 8340247033174744010, guid: 72e3b4952a1be0a488bcd582302a722f,
     type: 3}
   FireballSpawn: {fileID: 3173428338934355841}
 --- !u!1 &3173428338938420722
@@ -281,6 +281,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  coin: 0
   invulnertimer: 0
   invulnertarget: 0
   invicibility: 0

@@ -30,6 +30,7 @@ TagManager:
   - Fkey
   - Frostkey
   - Damage1
+  - Coin
   layers:
   - Default
   - TransparentFX
