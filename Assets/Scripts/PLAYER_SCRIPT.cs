@@ -156,7 +156,7 @@ public class PLAYER_SCRIPT : MonoBehaviour
     }
     void Dead()
     {
-        if (myBody.position.y < -5)
+        if (myBody.position.y < -20)
         {
             death = true;
 
@@ -180,7 +180,7 @@ public class PLAYER_SCRIPT : MonoBehaviour
             PlayerPrefs.SetInt("newcoin", coin);
             PlayerPrefs.SetInt("unlocked", fireunlock);
 
-            level.changeScene(2);
+            level.changeScene(4);
         }
     }
 
@@ -246,13 +246,6 @@ public class PLAYER_SCRIPT : MonoBehaviour
                 invicibility = true;
                 invulnertimer = 3.0f;
 
-
-
-            }
-
-       
-            else
-            {
 
 
             }
