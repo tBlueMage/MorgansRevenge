@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class ITEMHP_SCRIPT : MonoBehaviour
 {
+    //spawn loacation
  //   public Transform spawn;
 
-
+        //animator
     Animator myAnimator;
+
+    //variables for combining scripts
     /*
     public GameObject Bsnack;
     public GameObject Bmeal;
@@ -18,17 +21,23 @@ public class ITEMHP_SCRIPT : MonoBehaviour
     public GameObject GoldBar;
     public GameObject playeref;
     */
+    /*
     bool isdead;
     bool lootonce;
+    
     int lootdrop;
+    */
+
+
+        //objects hp
     public int ItemHealth;
 
-    // Start is called before the first frame update
 
     void Start()
     {
-        lootdrop = Random.Range(1, 7);
+       // lootdrop = Random.Range(1, 7);
 
+        //getting the animator
         myAnimator = GetComponent<Animator>();
 
     }
@@ -41,15 +50,16 @@ public class ITEMHP_SCRIPT : MonoBehaviour
     }
 
 
-    void LootDead()
-    {
+    void LootDead(){
+
+        //sets the animator dead to true when hp =0
         if (ItemHealth <= 0)
         {
             myAnimator.SetBool("Dead", true);
 
 
 
-            isdead = true;
+          //  isdead = true;
 
         }
     }
@@ -129,6 +139,7 @@ public class ITEMHP_SCRIPT : MonoBehaviour
     }*/
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //player attacks damage the object
         if (collision.gameObject.CompareTag("PlayerAttack"))
         {
             
@@ -140,6 +151,7 @@ public class ITEMHP_SCRIPT : MonoBehaviour
 
            
         }
+        //fireball damages the barrel
         else if (collision.gameObject.CompareTag("Fireball"))
         {
 
@@ -147,6 +159,7 @@ public class ITEMHP_SCRIPT : MonoBehaviour
 
             ItemHealth -= damage.Damage;
         }
+        //hazards damage the player
         else if (collision.gameObject.CompareTag("Hazard"))
         {
 

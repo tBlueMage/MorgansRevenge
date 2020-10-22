@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class HGHSWD_SCRIPT: MonoBehaviour
 {
+    //gets the sword prefab
     public GameObject swordPrefab;
+    //spawns the sword
     public GameObject SwordSpawn;
+    //makes the highsword script static
     public static HGHSWD_SCRIPT HighSlash;
+    //makes the fire bool
     public bool highslash = false;
 
     void Awake()
@@ -14,12 +18,7 @@ public class HGHSWD_SCRIPT: MonoBehaviour
         HighSlash = this;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
 
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -28,7 +27,7 @@ public class HGHSWD_SCRIPT: MonoBehaviour
 
 
 
-
+//makes the slash fire when jumps pressed with k
         if ((Input.GetKey(KeyCode.Space) && Input.GetKeyDown(KeyCode.K)) || (Input.GetKeyDown(KeyCode.K) && Input.GetKey(KeyCode.Space)))
         {
             Fire();
@@ -42,12 +41,14 @@ public class HGHSWD_SCRIPT: MonoBehaviour
     void handleMovement()
 
     {
+        //high slash is right
         if (Input.GetAxis("Horizontal") > 0)
         {
             transform.localPosition = new Vector3(2.7f, 2.1f, -0.5f);
 
         }
 
+        //high slash is left
         else if (Input.GetAxis("Horizontal") < 0)
         {
             transform.localPosition = new Vector3(-2.7f, 2.1f, -0.5f);
@@ -77,7 +78,7 @@ public class HGHSWD_SCRIPT: MonoBehaviour
             blade.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0));
         highslash = true;
 
-        //destroy after 2 seconds
+        //destroy after 0.5 seconds
         Destroy(blade, 0.5f);
         
 
@@ -86,8 +87,8 @@ public class HGHSWD_SCRIPT: MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-
-        if (collision.tag == "Sword" || collision.tag == "Soldier")
+        //destroys on enemy collision
+        if (collision.gameObject.CompareTag("Enemy"))
         {
 
             Destroy(gameObject);

@@ -5,16 +5,26 @@ using UnityEngine;
 
 public class NMYHP_SCRIPT : MonoBehaviour
 {
+    //the enemy spawn
     public Transform spawn;
-
+    //the enemy animator
     Animator myAnimator;
-
+    //invulnerability timer
     public float invulnertimer;
+    //invunerability target
     public float invulnertarget;
+    //checks for invincibility
     public bool invicibility;
-   public int lootdrop;
-    bool lootonce;
+    //dead variable
     public bool isdead;
+
+    //enemys hp
+    public int Enemyhealth;
+    //knockback script
+    KNCKBCK_SCRIPT struck;
+    /*public int lootdrop;
+    bool lootonce;
+    
     public GameObject Bsnack;
     public GameObject Bmeal;
     public GameObject Mvial;
@@ -23,37 +33,33 @@ public class NMYHP_SCRIPT : MonoBehaviour
     public GameObject CoinBag;
     public GameObject GoldBar;
     public GameObject playeref;
-    //enemys hp
+    */
 
-    public int Enemyhealth;
-    //player swords damage
-    KNCKBCK_SCRIPT struck;
-    //player ref
-    //how you get the crits
+
 
     // Start is called before the first frame update
     void Start()
     {
-        lootdrop = Random.Range(1, 7);
+      //  lootdrop = Random.Range(1, 7);
 
+        //gets animator
         myAnimator = GetComponent<Animator>();
 
-       
+        //invunerability timer and target
         invulnertarget = 0.0f;
         invulnertimer = 0.0f;
-        //how the player and damages get found
+        //knockback script
         struck = GetComponent<KNCKBCK_SCRIPT>();
 
     }
     void Update()
     {
-        objectdrop();
+        //objectdrop();
         invulerability();
-        //how enemy dies
         EnemyDead();
     }
     private void OnTriggerEnter2D(Collider2D collision)
-    {//it detects the sword and soldier collision
+    {//it detects the player attacks
         if (collision.gameObject.CompareTag("PlayerAttack"))
         {
             if (invicibility == false)
@@ -90,6 +96,7 @@ public class NMYHP_SCRIPT : MonoBehaviour
 
 
         }
+        //it detects the hazard
         else if (collision.gameObject.CompareTag("Hazard"))
         {
 
@@ -98,7 +105,7 @@ public class NMYHP_SCRIPT : MonoBehaviour
         }
     }
     void invulerability()
-    {
+    {//invcibility when hit
         if (invicibility == true)
         {
 
@@ -127,7 +134,7 @@ public class NMYHP_SCRIPT : MonoBehaviour
                 
         }
     }
-
+    /*
     void objectdrop()
     {
         if(isdead==true)
@@ -201,4 +208,5 @@ public class NMYHP_SCRIPT : MonoBehaviour
             }
         }
     }
+    */
 }

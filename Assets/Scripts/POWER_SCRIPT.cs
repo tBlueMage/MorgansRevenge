@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class POWER_SCRIPT : MonoBehaviour
 {
+    //damage done
     public int Damage;
    
 }
