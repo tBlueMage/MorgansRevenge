@@ -1656,7 +1656,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 757e253bb60765343955baa8103b5507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordPrefab: {fileID: 1063632248831671897, guid: d88459c5f8c216f4d948df0de5321815,
+  player: {fileID: 6071533061322735625}
+  swordPrefab: {fileID: 1063632248831671897, guid: 1b0ad36ab8f792d468cc9f1cb09ee6ae,
     type: 3}
   SwordSpawn: {fileID: 2264871686826014373}
   highslash: 0
@@ -1686,7 +1687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60ce003b798489e4e93cee70a91117b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordPrefab: {fileID: 1063632248831671897, guid: d88459c5f8c216f4d948df0de5321815,
+  swordPrefab: {fileID: 1063632248831671897, guid: 1b0ad36ab8f792d468cc9f1cb09ee6ae,
     type: 3}
   SwordSpawn: {fileID: 8672001241264329457}
   slash: 0
@@ -1733,7 +1734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a4a753dcddee5479eb0600f589cd1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordPrefab: {fileID: 1063632248831671897, guid: d88459c5f8c216f4d948df0de5321815,
+  swordPrefab: {fileID: 1063632248831671897, guid: 1b0ad36ab8f792d468cc9f1cb09ee6ae,
     type: 3}
   SwordSpawn: {fileID: 449690612508222061}
   slash: 0
@@ -1766,7 +1767,6 @@ GameObject:
   - component: {fileID: 6071533061322735627}
   - component: {fileID: 6071533061322735671}
   - component: {fileID: 6071533061322735664}
-  - component: {fileID: 6071533061322735665}
   - component: {fileID: 6071533061322735628}
   m_Layer: 12
   m_Name: Player
@@ -1791,6 +1791,7 @@ MonoBehaviour:
   level: {fileID: 6071533061322735628}
   fireunlock: 0
   coinvalue: {fileID: 1911503390}
+  thrust: 0
   myBox: {fileID: 6071533061954601496}
   groundLayer:
     serializedVersion: 2
@@ -1838,7 +1839,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 6071533061322735624}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: f023690779ce3954dbb29fdcf57e76f5, type: 2}
+  m_Material: {fileID: 6200000, guid: 1f0be87ff996ec64aa785bbec4e08f54, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1859,6 +1860,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coin: 0
   fire: 0
+  onTitle: 1
 --- !u!114 &6071533061322735664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1871,21 +1873,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf4b55fca65589c4eb0dedc1c38b7e8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6071533061322735665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6071533061322735624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33e2ad0f395e4f549a8256a0ec4b4d1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 6071533061322735626}
-  knockBack: 0
-  thrust: 1000
 --- !u!212 &6071533061322735668
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1933,7 +1920,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &6071533061322735669

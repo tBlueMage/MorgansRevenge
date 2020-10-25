@@ -61,10 +61,7 @@ GameObject:
   - component: {fileID: 3192431363743399485}
   - component: {fileID: 3192431363743399872}
   - component: {fileID: 3192431363743399873}
-  - component: {fileID: 3192431363743399875}
-  - component: {fileID: 3192431363743399874}
   - component: {fileID: 3192431363743399487}
-  - component: {fileID: 3192431363743399484}
   - component: {fileID: 3192431363743399486}
   - component: {fileID: 6978406691939490165}
   m_Layer: 9
@@ -153,6 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   distance: 2
+  movingRight: 0
   groundDetection: {fileID: 3192431362729610163}
 --- !u!114 &3192431363743399485
 MonoBehaviour:
@@ -166,12 +164,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afbba703221303a4c9c8a1e30dd3a3c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  myBox: {fileID: 3192431363743399873}
+  isGrounded: 0
+  thrust: 1000
   spawn: {fileID: 3192431363743399878}
   invulnertimer: 0
   invulnertarget: 0
   invicibility: 0
-  lootdrop: 0
   isdead: 0
+  Enemyhealth: 4
+  lootdrop: 0
+  dropchance: 0
   Bsnack: {fileID: 2465739114448873993, guid: ed46b2b3757693a4cbe3d1579af4af2d, type: 3}
   Bmeal: {fileID: 586773364701114417, guid: 90b6616e1915d114b962d995821a9481, type: 3}
   Mvial: {fileID: 5667388634067837605, guid: 53d0e0ac2e2a70a4b80a0a1f1634b34e, type: 3}
@@ -181,7 +187,6 @@ MonoBehaviour:
   GoldBar: {fileID: 6806969866165904133, guid: b501147b54790d4439c541085b4e2616, type: 3}
   playeref: {fileID: 3173428338938420722, guid: c37bfe1febf17d345865e072030ec2ec,
     type: 3}
-  Enemyhealth: 4
 --- !u!50 &3192431363743399872
 Rigidbody2D:
   serializedVersion: 4
@@ -213,32 +218,6 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7, y: 3.2}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 7, y: 3.2}
-  m_EdgeRadius: 0
---- !u!61 &3192431363743399875
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3192431363743399877}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -255,31 +234,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7, y: 3.2}
   m_EdgeRadius: 0
---- !u!114 &3192431363743399874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3192431363743399877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7d9e72f9f697194192988d22be4fb2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawn: {fileID: 3192431362729610163}
-  drop: {fileID: 0}
-  Bsnack: {fileID: 2465739114448873993, guid: ed46b2b3757693a4cbe3d1579af4af2d, type: 3}
-  Bmeal: {fileID: 586773364701114417, guid: 90b6616e1915d114b962d995821a9481, type: 3}
-  Mvial: {fileID: 5667388634067837605, guid: 53d0e0ac2e2a70a4b80a0a1f1634b34e, type: 3}
-  Mpotion: {fileID: 181984596237373877, guid: 2f761545a091a5449a58ce89e166ca79, type: 3}
-  GoldCoin: {fileID: 6806969866165904133, guid: b501147b54790d4439c541085b4e2616,
-    type: 3}
-  CoinBag: {fileID: 8006021749900450716, guid: 916c8926458d03a4b95d4b165895e7ee, type: 3}
-  GoldBar: {fileID: 6806969866165904133, guid: b501147b54790d4439c541085b4e2616, type: 3}
-  playeref: {fileID: 3173428338938420722, guid: c37bfe1febf17d345865e072030ec2ec,
-    type: 3}
-  item: 0
 --- !u!114 &3192431363743399487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,22 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d44ded6b2cee694ebf2ff9ba14caacc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 2
---- !u!114 &3192431363743399484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3192431363743399877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33e2ad0f395e4f549a8256a0ec4b4d1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 3192431363743399872}
-  knockBack: 0
-  thrust: 300
+  Damage: 4
 --- !u!95 &3192431363743399486
 Animator:
   serializedVersion: 3

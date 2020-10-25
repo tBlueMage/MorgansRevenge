@@ -25,10 +25,11 @@ public class DETHSPWN_SCRIPT : MonoBehaviour
     }
 
     //void thats tagged to get loot drop
+    
     void lootdrop()
     {
-        itemdrop = true;
+        //itemdrop = true;
 
     }
-
+    
 }

@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class KNCKBCK_SCRIPT : MonoBehaviour
 {
+	Vector3 pushDirection;
+
 	//gets rigid body
 	public Rigidbody2D rb;
 	//knockback bool
 	public bool knockBack;
 	//thrust force added
-	public float thrust;
+	public float upwardThrust;
+	public float directionatalthrust;
 	// Use this for initialization
 	void Start()
 	{
@@ -30,8 +33,9 @@ public class KNCKBCK_SCRIPT : MonoBehaviour
 		{
 			knockBack = false;
 			//if intfont of player make - thrust if behind player make thrust
-			rb.AddForce(transform.right * -thrust);
-			rb.AddForce(transform.up * thrust);
+
+			rb.AddForce(pushDirection * 100);
+			//rb.AddForce(transform.up * upwardThrust);
 		}
 
 	}	

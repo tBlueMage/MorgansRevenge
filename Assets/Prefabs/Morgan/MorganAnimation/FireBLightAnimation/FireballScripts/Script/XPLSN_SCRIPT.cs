@@ -69,7 +69,7 @@ public class XPLSN_SCRIPT: MonoBehaviour
             //destroy after 2 seconds
             Destroy(Explosion, 1.0f);
         }
-        else if (collision.gameObject.CompareTag("Ground"))
+         if (collision.gameObject.CompareTag("Ground"))
         {
             Destroy(gameObject);
 
@@ -87,7 +87,7 @@ public class XPLSN_SCRIPT: MonoBehaviour
             Destroy(Explosion, 1.0f);
         }
 
-        else if (collision.gameObject.CompareTag("Loot"))
+         if (collision.gameObject.CompareTag("Loot"))
         {
             Destroy(gameObject);
 

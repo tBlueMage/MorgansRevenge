@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HGHSWD_SCRIPT: MonoBehaviour
 {
+    public PLAYER_SCRIPT player;
     //gets the sword prefab
     public GameObject swordPrefab;
     //spawns the sword
@@ -28,7 +29,7 @@ public class HGHSWD_SCRIPT: MonoBehaviour
 
 
 //makes the slash fire when jumps pressed with k
-        if ((Input.GetKey(KeyCode.Space) && Input.GetKeyDown(KeyCode.K)) || (Input.GetKeyDown(KeyCode.K) && Input.GetKey(KeyCode.Space)))
+        if (player.isGrounded ==false && Input.GetKeyDown(KeyCode.K))
         {
             Fire();
         }

@@ -6,7 +6,7 @@ public class PATROL_SCRIPT : MonoBehaviour
 {
     public float speed;
     public float distance;
-    private bool movingRight = false;
+    public bool movingRight = false;
 
     public Transform groundDetection;
 
@@ -21,15 +21,18 @@ public class PATROL_SCRIPT : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Ground" || collision.tag == "trigger")
-        if (movingRight == true)
         {
-            transform.eulerAngles = new Vector3(0, 0, 0);
-            movingRight = false;
-        }
-        else
-        {
-            transform.eulerAngles = new Vector3(0, -180, 0);
-            movingRight = true;
+            
+            if (movingRight == true)
+            {
+                transform.eulerAngles = new Vector3(0, 0, 0);
+                movingRight = false;
+            }
+            else
+            {
+                transform.eulerAngles = new Vector3(0, -180, 0);
+                movingRight = true;
+            }
         }
     }
 }

@@ -67,14 +67,6 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: lootdrop
-    data: 
-    objectReferenceParameter: {fileID: 8845030229018053367, guid: efc4c81a4ea733841b368d24fcb8b08a,
-      type: 3}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.033333335
     functionName: SpawnExplosion
     data: 
     objectReferenceParameter: {fileID: 0}

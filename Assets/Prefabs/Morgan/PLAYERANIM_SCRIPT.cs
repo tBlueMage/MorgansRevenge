@@ -105,7 +105,19 @@ public class PLAYERANIM_SCRIPT : MonoBehaviour
 
         }
 
-      
+        else if (myPlayerMovement.isMoving && myPlayerMovement.isGrounded && SWD_SCRIPT.midslash.slash == true && LWSWD_SCRIPT.lowslash.slash == false)
+        {
+            myAnimator.SetBool("Walk", true);
+            myAnimator.SetBool("Slash", true);
+            myAnimator.SetBool("LowSlash", false);
+            myAnimator.SetBool("HighSlash", false);
+            myAnimator.SetBool("Death", false);
+            myAnimator.SetBool("Fireball", false);
+            myAnimator.SetBool("Jump", false);
+
+        }
+
+
 
 
         else if (!myPlayerMovement.isMoving && myPlayerMovement.isGrounded && SWD_SCRIPT.midslash.slash == true && LWSWD_SCRIPT.lowslash.slash == false)

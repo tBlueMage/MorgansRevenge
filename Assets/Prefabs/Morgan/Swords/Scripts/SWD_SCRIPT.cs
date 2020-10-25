@@ -80,13 +80,14 @@ public class SWD_SCRIPT : MonoBehaviour
             //give it force
             blade.GetComponent<Rigidbody2D>().MovePosition(SwordSpawn.transform.position);
 
-            //destroy after 0.10 seconds
-            Destroy(blade, 0.10f);
+        //destroy after 0.10 seconds
+        Destroy(blade, .10f) ;
         //makes slash equal true
         slash = true;
-
+        
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
 
         //destroys on collision with enemy
@@ -97,11 +98,8 @@ public class SWD_SCRIPT : MonoBehaviour
 
         }
 
-
-  
-
-
     }
+
 
 
 

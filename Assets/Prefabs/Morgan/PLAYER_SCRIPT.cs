@@ -20,7 +20,11 @@ public class PLAYER_SCRIPT : MonoBehaviour
     KNCKBCK_SCRIPT struck;
     //displays the coin value
    public Text coinvalue;
-  
+
+    public float thrust;
+
+    Vector3 dir1;
+
     //jump box collider
     public BoxCollider2D myBox;
     //checks the sprite renderer
@@ -81,9 +85,12 @@ public class PLAYER_SCRIPT : MonoBehaviour
     {
         coinvalue.text = coin.ToString();
 
-   
-        checkForGround();
-        handleMovement();
+        if (!death)
+        {
+            checkForGround();
+      
+            handleMovement();
+        }
 
         Dead();
         invulerability(); 
@@ -157,7 +164,7 @@ public class PLAYER_SCRIPT : MonoBehaviour
         //stop when O is released
         if (!Input.GetKey(KeyCode.O))
         {
-            speedforce = 10;
+            speedforce = 20;
         }
 
 
@@ -194,7 +201,6 @@ public class PLAYER_SCRIPT : MonoBehaviour
         if (myBody.position.y < -20)
         {
             death = true;
-
         }
 
         //kills at 0
@@ -202,7 +208,6 @@ public class PLAYER_SCRIPT : MonoBehaviour
         {
 
             death = true;
-
           
         }
 
@@ -283,13 +288,14 @@ public class PLAYER_SCRIPT : MonoBehaviour
         {
             if (invicibility == false)
             {
-                struck.knockBack = true;
 
-
+                var target = collision.transform;
+                dir1 = (transform.position - target.position).normalized;
+                myBody.AddRelativeForce(dir1 * thrust);
                 var damage = collision.gameObject.GetComponent<POWER_SCRIPT>();
                 Hp.value -= damage.Damage;
                 invicibility = true;
-                invulnertimer = 3.0f;
+                invulnertimer = 2.0f;
 
 
 
