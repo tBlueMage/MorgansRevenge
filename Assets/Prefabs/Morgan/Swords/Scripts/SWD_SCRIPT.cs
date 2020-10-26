@@ -26,24 +26,8 @@ public class SWD_SCRIPT : MonoBehaviour
     // Update is called once per frame
     void  Update()
     {
-        handleMovement();
+        //handleMovement();
 
-
-
-
-        //makes the midslash happen when jump or crouch is pressed
-        if (Input.GetKeyDown(KeyCode.K) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.Space))
-        {
-            Fire();
-            Debug.Log("true");
-        }
-
-
-        else
-        {
-            slash = false;
-
-        }
     }
     void handleMovement()
 
@@ -66,7 +50,7 @@ public class SWD_SCRIPT : MonoBehaviour
 
 
     }
-    void Fire()
+    public void MIDFire()
     {
       
             //have a bullet
@@ -87,18 +71,6 @@ public class SWD_SCRIPT : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-
-        //destroys on collision with enemy
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-
-            Destroy(gameObject);
-
-        }
-
-    }
 
 
 

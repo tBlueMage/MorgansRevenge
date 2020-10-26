@@ -32,6 +32,8 @@ public class HGHSWD_SCRIPT: MonoBehaviour
         if (player.isGrounded ==false && Input.GetKeyDown(KeyCode.K))
         {
             Fire();
+           // highslash = true;
+
         }
 
         else
@@ -77,7 +79,6 @@ public class HGHSWD_SCRIPT: MonoBehaviour
 
             //give it force
             blade.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0));
-        highslash = true;
 
         //destroy after 0.5 seconds
         Destroy(blade, 0.5f);

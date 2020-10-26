@@ -4,166 +4,166 @@ using UnityEngine;
 
 public class PLAYERANIM_SCRIPT : MonoBehaviour
 {
-    Animator myAnimator;
+  Animator PLAYER_CONTROL;
     PLAYER_SCRIPT myPlayerMovement;
 
     // Start is called before the first frame update
     void Start()
     {
-        myAnimator = GetComponent<Animator>();
+        PLAYER_CONTROL = GetComponent<Animator>();
         myPlayerMovement = GetComponent<PLAYER_SCRIPT>();
     }
 
     // Update is called once per frame
     void Update()
     {
-            //walk
-        if (myPlayerMovement.isMoving && !myPlayerMovement.isGrounded && HGHSWD_SCRIPT.HighSlash.highslash == false)
-        {    
-          
-            myAnimator.SetBool("Walk", false);
-            myAnimator.SetBool("Slash", false);
-            myAnimator.SetBool("HighSlash", false);
-            myAnimator.SetBool("LowSlash", false);
-            myAnimator.SetBool("Death", false);
-            myAnimator.SetBool("Jump", true);
-            myAnimator.SetBool("Fireball", false);
-
-        }
-       else if (myPlayerMovement.isMoving && !myPlayerMovement.isGrounded && HGHSWD_SCRIPT.HighSlash.highslash == true)
+        //just walk
+        if (myPlayerMovement.isMoving == true && myPlayerMovement.isGrounded == true && myPlayerMovement.midslash == false)
         {
+            PLAYER_CONTROL.SetBool("Walk", true);
+            PLAYER_CONTROL.SetBool("Jump", false);
+            PLAYER_CONTROL.SetBool("Slash", false);
+            PLAYER_CONTROL.SetBool("Crouch", false);
 
-            myAnimator.SetBool("Walk", false);
-            myAnimator.SetBool("Slash", false);
-            myAnimator.SetBool("HighSlash", true);
-            myAnimator.SetBool("LowSlash", false);
-            myAnimator.SetBool("Death", false);
-            myAnimator.SetBool("Fireball", false);
-            myAnimator.SetBool("Jump", true);
 
         }
-        else if (!myPlayerMovement.isMoving && !myPlayerMovement.isGrounded && HGHSWD_SCRIPT.HighSlash.highslash == false && FIREBLL_SCRIPT.fire.shoot == false)
+        //just walk end
+        //move jump
+        else if (myPlayerMovement.isMoving == true && myPlayerMovement.isGrounded == false)
         {
+            PLAYER_CONTROL.SetBool("Walk", false);
+            PLAYER_CONTROL.SetBool("Jump", true);
+            PLAYER_CONTROL.SetBool("Slash", false);
+            PLAYER_CONTROL.SetBool("Crouch", false);
 
-            myAnimator.SetBool("Walk", false);
-            myAnimator.SetBool("Slash", false);
-            myAnimator.SetBool("HighSlash", false);
-            myAnimator.SetBool("LowSlash", false);
-            myAnimator.SetBool("Death", false);
-            myAnimator.SetBool("Fireball", false);
-            myAnimator.SetBool("Jump", true);
 
         }
-        else if (!myPlayerMovement.isMoving && !myPlayerMovement.isGrounded && HGHSWD_SCRIPT.HighSlash.highslash == false && FIREBLL_SCRIPT.fire.shoot == true)
+        //move jump end
+        //jump
+
+        //jump end
+        //jumpslash
+        else if (myPlayerMovement.isMoving == false && myPlayerMovement.isGrounded == false && myPlayerMovement.highslash == false)
         {
+            PLAYER_CONTROL.SetBool("Walk", false);
+            PLAYER_CONTROL.SetBool("Jump", true);
+            PLAYER_CONTROL.SetBool("Slash", false);
+            PLAYER_CONTROL.SetBool("Crouch", false);
+            PLAYER_CONTROL.SetBool("HighSlash", false);
 
-            myAnimator.SetBool("Walk", false);
-            myAnimator.SetBool("Slash", false);
-            myAnimator.SetBool("HighSlash", false);
-            myAnimator.SetBool("LowSlash", false);
-            myAnimator.SetBool("Death", false);
-            myAnimator.SetBool("Fireball", true);
-            myAnimator.SetBool("Jump", false);
 
         }
-
-
-        else if (!myPlayerMovement.isMoving && !myPlayerMovement.isGrounded && HGHSWD_SCRIPT.HighSlash.highslash == true)
+        //jumpslash end
+        else if (myPlayerMovement.isMoving == false && myPlayerMovement.isGrounded == false && myPlayerMovement.highslash == true)
         {
+            PLAYER_CONTROL.SetBool("Walk", false);
+            PLAYER_CONTROL.SetBool("Jump", true);
+            PLAYER_CONTROL.SetBool("Slash", false);
+            PLAYER_CONTROL.SetBool("Crouch", false);
+            PLAYER_CONTROL.SetBool("HighSlash", true);
 
-            myAnimator.SetBool("Walk", false);
-            myAnimator.SetBool("Slash", false);
-            myAnimator.SetBool("HighSlash", true);
-            myAnimator.SetBool("LowSlash", false);
-            myAnimator.SetBool("Death", false);
-            myAnimator.SetBool("Fireball", false);
-            myAnimator.SetBool("Jump", false);
 
 
         }
-        else if (!myPlayerMovement.isMoving && myPlayerMovement.isGrounded && HGHSWD_SCRIPT.HighSlash.highslash == false && FIREBLL_SCRIPT.fire.shoot == true)
+        else if (myPlayerMovement.isMoving == true && myPlayerMovement.isGrounded == false && myPlayerMovement.highslash == false)
         {
+            PLAYER_CONTROL.SetBool("Walk", false);
+            PLAYER_CONTROL.SetBool("Jump", true);
+            PLAYER_CONTROL.SetBool("Slash", false);
+            PLAYER_CONTROL.SetBool("Crouch", false);
+            PLAYER_CONTROL.SetBool("HighSlash", false);
 
-            myAnimator.SetBool("Walk", false);
-            myAnimator.SetBool("Slash", false);
-            myAnimator.SetBool("HighSlash", false);
-            myAnimator.SetBool("LowSlash", false);
-            myAnimator.SetBool("Death", false);
-            myAnimator.SetBool("Fireball", true);
-            myAnimator.SetBool("Jump", false);
 
         }
-        else if (myPlayerMovement.isMoving && myPlayerMovement.isGrounded&& SWD_SCRIPT.midslash.slash == false && LWSWD_SCRIPT.lowslash.slash == false)
+        else if (myPlayerMovement.isMoving == true && myPlayerMovement.isGrounded == false && myPlayerMovement.highslash == true)
         {
-            myAnimator.SetBool("Walk", true);
-            myAnimator.SetBool("Slash", false);
-            myAnimator.SetBool("LowSlash", false);
-            myAnimator.SetBool("HighSlash", false);
-            myAnimator.SetBool("Death", false);
-            myAnimator.SetBool("Fireball", false);
-            myAnimator.SetBool("Jump", false);
+            PLAYER_CONTROL.SetBool("Walk", false);
+            PLAYER_CONTROL.SetBool("Jump", true);
+            PLAYER_CONTROL.SetBool("Slash", false);
+            PLAYER_CONTROL.SetBool("Crouch", false);
+            PLAYER_CONTROL.SetBool("HighSlash", true);
+
 
         }
-
-        else if (myPlayerMovement.isMoving && myPlayerMovement.isGrounded && SWD_SCRIPT.midslash.slash == true && LWSWD_SCRIPT.lowslash.slash == false)
+        //walk slash
+        else if (myPlayerMovement.isMoving == true && myPlayerMovement.isGrounded == true && myPlayerMovement.midslash == true)
         {
-            myAnimator.SetBool("Walk", true);
-            myAnimator.SetBool("Slash", true);
-            myAnimator.SetBool("LowSlash", false);
-            myAnimator.SetBool("HighSlash", false);
-            myAnimator.SetBool("Death", false);
-            myAnimator.SetBool("Fireball", false);
-            myAnimator.SetBool("Jump", false);
+            PLAYER_CONTROL.SetBool("Crouch", false);
+            PLAYER_CONTROL.SetBool("Walk", true);
+            PLAYER_CONTROL.SetBool("Jump", false);
+            PLAYER_CONTROL.SetBool("Slash", true);
+
+
 
         }
+        //walk slash end
 
-
-
-
-        else if (!myPlayerMovement.isMoving && myPlayerMovement.isGrounded && SWD_SCRIPT.midslash.slash == true && LWSWD_SCRIPT.lowslash.slash == false)
+        //stand slash
+        else if (myPlayerMovement.isMoving == false && myPlayerMovement.isGrounded == true && myPlayerMovement.midslash == true)
         {
-            myAnimator.SetBool("Walk", false);
-            myAnimator.SetBool("Slash", true);
-            myAnimator.SetBool("LowSlash", false);
-            myAnimator.SetBool("HighSlash", false);
-            myAnimator.SetBool("Death", false);
-            myAnimator.SetBool("Fireball", false);
-            myAnimator.SetBool("Jump", false);
+            PLAYER_CONTROL.SetBool("Crouch", false);
+            PLAYER_CONTROL.SetBool("Walk", false);
+            PLAYER_CONTROL.SetBool("Jump", false);
+            PLAYER_CONTROL.SetBool("Slash", true);
+
+
 
         }
-        else if (!myPlayerMovement.isMoving && myPlayerMovement.isGrounded && SWD_SCRIPT.midslash.slash == false && LWSWD_SCRIPT.lowslash.slash == true)
+
+        //stand slash end
+
+        //crouch
+        else if (myPlayerMovement.crouch == true && myPlayerMovement.lowslash == false)
         {
-            myAnimator.SetBool("Walk", false);
-            myAnimator.SetBool("Slash", false);
-            myAnimator.SetBool("LowSlash", true);
-            myAnimator.SetBool("HighSlash", false);
-            myAnimator.SetBool("Death", false);
-            myAnimator.SetBool("Fireball", false);
-            myAnimator.SetBool("Jump", false);
+            PLAYER_CONTROL.SetBool("Walk", false);
+            PLAYER_CONTROL.SetBool("Jump", false);
+            PLAYER_CONTROL.SetBool("Slash", false);
+            PLAYER_CONTROL.SetBool("Crouch", true);
+
+            PLAYER_CONTROL.SetBool("LowSlash", false);
+
 
         }
-        else if(myPlayerMovement.death==true)
+        //crouch end
+        //crouch slash
+        else if (myPlayerMovement.crouch == true && myPlayerMovement.lowslash == true)
         {
-            myAnimator.SetBool("Jump", false);
+            PLAYER_CONTROL.SetBool("Walk", false);
+            PLAYER_CONTROL.SetBool("Jump", false);
+            PLAYER_CONTROL.SetBool("Slash", false);
+            PLAYER_CONTROL.SetBool("Crouch", true);
 
-            myAnimator.SetBool("Walk", false);
-            myAnimator.SetBool("Slash", false);
-            myAnimator.SetBool("LowSlash", false);
-            myAnimator.SetBool("HighSlash", false);
-            myAnimator.SetBool("Death", true);
-            myAnimator.SetBool("Fireball", false);
+            PLAYER_CONTROL.SetBool("LowSlash", true);
+
 
         }
-        //walk end
+        //crouch slash end
+        //fireball
+        else if (myPlayerMovement.isMoving == false && myPlayerMovement.isGrounded == true && myPlayerMovement.castingfireball == true)
+        {
+            PLAYER_CONTROL.SetBool("Walk", false);
+            PLAYER_CONTROL.SetBool("Jump", false);
+            PLAYER_CONTROL.SetBool("Fireball", true);
+
+            PLAYER_CONTROL.SetBool("Crouch", false);
+
+
+        }
+        //fireball end
+
+
+
+
         else
         {
-            myAnimator.SetBool("Walk", false);
-            myAnimator.SetBool("Slash", false);
-            myAnimator.SetBool("LowSlash", false);
-            myAnimator.SetBool("HighSlash", false);
-            myAnimator.SetBool("Death", false);
-            myAnimator.SetBool("Fireball", false);
-            myAnimator.SetBool("Jump", false);
+            PLAYER_CONTROL.SetBool("Walk", false);
+            PLAYER_CONTROL.SetBool("Jump", false);
+            PLAYER_CONTROL.SetBool("Crouch", false);
+            PLAYER_CONTROL.SetBool("Slash", false);
+            PLAYER_CONTROL.SetBool("LowSlash", false);
+            PLAYER_CONTROL.SetBool("HighSlash", false);
+            PLAYER_CONTROL.SetBool("Death", false);
+            PLAYER_CONTROL.SetBool("Fireball", false);
 
         }
     }

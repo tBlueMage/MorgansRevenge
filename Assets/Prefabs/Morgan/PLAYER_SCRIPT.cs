@@ -11,7 +11,7 @@ public class PLAYER_SCRIPT : MonoBehaviour
 
     //loads the level the players in
     public CHASEN_SCRIPT level;
-
+    public bool castingfireball;
     //int for fireball unlock
     public int fireunlock;
     //the players rigid body
@@ -20,7 +20,8 @@ public class PLAYER_SCRIPT : MonoBehaviour
     KNCKBCK_SCRIPT struck;
     //displays the coin value
    public Text coinvalue;
-
+    public bool highslash;
+    public bool lowslash;
     public float thrust;
 
     Vector3 dir1;
@@ -38,6 +39,8 @@ public class PLAYER_SCRIPT : MonoBehaviour
     //target for the invunerable timer to equal
     public float invulnertarget;
     //bool for players invincibility
+    public bool midslash;
+    public bool crouch;
     public bool invicibility;
     //bool for players death
     public bool death;
@@ -46,11 +49,11 @@ public class PLAYER_SCRIPT : MonoBehaviour
     //the target the death timer equals
     public float deathtimertarget;
     //checks for ground
-    public bool isGrounded = false;
+    public bool isGrounded;
     //checks if moving
-    public bool isMoving = false;
+    public bool isMoving;
     //checks if facing left
-    public bool isLeft = true;
+    public bool isLeft;
     //jump height
     public float jumpforce;
     //inital speed
@@ -61,6 +64,7 @@ public class PLAYER_SCRIPT : MonoBehaviour
    
     void Start()
     {
+        isLeft = false;
         //gets coin save
         coin = PlayerPrefs.GetInt("newcoin");
         //gets fireunlocked save
@@ -98,6 +102,12 @@ public class PLAYER_SCRIPT : MonoBehaviour
     //checks if the players on the ground
     void checkForGround()
     {
+        if (Input.GetKey(KeyCode.K) && isGrounded == false)
+        {
+
+
+            highslash = true;
+        }
         //checking for ground
         RaycastHit2D raycastHit2d = Physics2D.BoxCast(myBox.bounds.center, myBox.bounds.size, 0f, Vector2.down, .1f, groundLayer);
 
@@ -105,10 +115,13 @@ public class PLAYER_SCRIPT : MonoBehaviour
         {
             //ground is true
             isGrounded = true;
+            highslash = false;
+
         }
 
         else
         {
+          
 
             //ground is fale
             isGrounded = false;
@@ -118,14 +131,63 @@ public class PLAYER_SCRIPT : MonoBehaviour
     void handleMovement()
 
     {
+        if (Input.GetKeyDown(KeyCode.K)&& crouch ==true)
+        {
+
+            lowslash = true;
+        }
+
+        if (!Input.GetKeyDown(KeyCode.K) && crouch == true)
+        {
+
+            lowslash = false;
+        }
         //left is true
         if (Input.GetAxis("Horizontal") > 0)
         {
+            if(Input.GetKeyDown(KeyCode.K))
+            {
+
+
+                midslash = true;
+            }
+            if (!Input.GetKeyDown(KeyCode.K))
+
+            { midslash = false;
+
+            }
             myBody.velocity = new Vector2(+speedforce + bonusspeed, myBody.velocity.y);
             mySprite.flipX = true;
             isMoving = true;
             isLeft = true;
+            Debug.Log("moveleft");
+            crouch = false;
 
+
+        }
+        else  if (Input.GetAxis("Crouch") >0)
+        {
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+
+                lowslash = true;
+            }
+
+            if (!Input.GetKeyDown(KeyCode.K))
+            {
+
+                lowslash = false;
+            }
+
+            crouch = true;
+
+            Debug.Log("crouch");
+        }
+        else if (Input.GetAxis("Crouch") < 0)
+        {
+            crouch = false;
+            lowslash = false;
+            Debug.Log("crouch");
         }
         else
         {
@@ -136,6 +198,22 @@ public class PLAYER_SCRIPT : MonoBehaviour
                 mySprite.flipX = false;
                 isMoving = true;
                 isLeft = false;
+                crouch = false;
+
+                if (Input.GetKeyDown(KeyCode.K))
+                {
+
+                    Debug.Log("slash");
+                    midslash = true;
+                }
+                if (!Input.GetKeyDown(KeyCode.K))
+
+                {
+                    midslash = false;
+
+                }
+                Debug.Log("moveright");
+
 
             }
             //standing still
@@ -144,7 +222,18 @@ public class PLAYER_SCRIPT : MonoBehaviour
                 isMoving = false;
                 myBody.velocity = new Vector2(0, myBody.velocity.y);
 
+                if (Input.GetKeyDown(KeyCode.K)&& crouch ==false)
+                {
 
+
+                    midslash = true;
+                }
+                if (!Input.GetKeyDown(KeyCode.K))
+
+                {
+                    midslash = false;
+
+                }
             }
         }
 
@@ -153,17 +242,20 @@ public class PLAYER_SCRIPT : MonoBehaviour
         {
             myBody.velocity = new Vector2(myBody.velocity.x, jumpforce);
             isMoving = false;
+           
         }
 
 
         //stops player when O is pressed
         if (Input.GetKeyDown(KeyCode.O))
         {
+            castingfireball = true;
             speedforce = 0;
         }
         //stop when O is released
         if (!Input.GetKey(KeyCode.O))
         {
+            castingfireball = false;
             speedforce = 20;
         }
 

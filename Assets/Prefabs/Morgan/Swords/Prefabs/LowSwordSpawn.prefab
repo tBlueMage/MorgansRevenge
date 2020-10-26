@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a4a753dcddee5479eb0600f589cd1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordPrefab: {fileID: 1063632248831671897, guid: 1b0ad36ab8f792d468cc9f1cb09ee6ae,
+  swordPrefab: {fileID: 2023848422413314598, guid: 2970f28012facea4b81a6ec77f32f6d6,
     type: 3}
   SwordSpawn: {fileID: 5944738435307059987}
   slash: 0

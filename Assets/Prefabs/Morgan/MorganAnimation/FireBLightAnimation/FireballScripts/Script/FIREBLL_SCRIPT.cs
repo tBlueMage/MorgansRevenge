@@ -42,43 +42,7 @@ public class FIREBLL_SCRIPT : MonoBehaviour
         handleMovement();
 
        
-        //checks to see if only the O key is hit
-            if ((Input.GetKeyDown(KeyCode.O) && !Input.GetKeyDown(KeyCode.S) && !Input.GetKeyDown(KeyCode.D) && !Input.GetKeyDown(KeyCode.W)))
-        {
-            //checks if its unlocked
-            if (unlock.fireunlock == 1)
-            {
-                //checks if manas greater than 1
-                if (MP_SCRIPT.mana.Mp.value >= 1)
-                {
-
-                    //finally shoots it
-                    Fire();
-
-                    MP_SCRIPT.mana.Mp.value -= 1;
-                }
-                else
-                {
-                    shoot = false;
-
-                    MP_SCRIPT.mana.Mp.value = 0;
-                    Debug.Log("Fire");
-                }
-            }
-
-            else
-            {
-                shoot = false;
-
-            }
-
-
-        }
-        else
-        {
-            shoot = false;
-        }
-            
+       
 
     }
     void handleMovement()
@@ -87,14 +51,14 @@ public class FIREBLL_SCRIPT : MonoBehaviour
         //sets the point right
         if (Input.GetAxis("Horizontal") > 0)
         {
-            transform.localPosition = new Vector3(2.9f, 0, 0);
+            FireballSpawn.transform.localPosition = new Vector3(2.9f, 0, 0);
             righttrue = true;
         }
 
         //sets the point left
         else if (Input.GetAxis("Horizontal") < 0)
         {
-            transform.localPosition = new Vector3(-2.9f, 0, 0);
+            FireballSpawn.transform.localPosition = new Vector3(-2.9f, 0, 0);
             righttrue = false;
         }
 
@@ -102,36 +66,39 @@ public class FIREBLL_SCRIPT : MonoBehaviour
 
 
     }
-    void Fire()
+    public void CastFireball()
     {
-        //sets the shoot equal to true
-        shoot = true;
-
-
-        //have a bullet
-
-        Debug.Log("normalShot");
-
-      
-        //makes a bullet
-        fireball = (Instantiate(FireballPrefab, FireballSpawn.transform.position, transform.rotation)) as GameObject;
-
-        //give it force to right
-
-        if (righttrue == true)
+        if (MP_SCRIPT.mana.Mp.value >= 1)
         {
-            fireball.GetComponent<Rigidbody2D>().AddForce(new Vector2(400, 0));
+            //sets the shoot equal to true
+            shoot = true;
+
+            MP_SCRIPT.mana.Mp.value -= 1;
+
+            //have a bullet
+
+            Debug.Log("normalShot");
+
+
+            //makes a bullet
+            fireball = (Instantiate(FireballPrefab, FireballSpawn.transform.position, transform.rotation)) as GameObject;
+
+            //give it force to right
+
+            if (unlock.isLeft == true)
+            {
+                fireball.GetComponent<Rigidbody2D>().AddForce(new Vector2(400, 0));
+            }
+            //give it force to left
+
+            if (unlock.isLeft == false)
+            {
+                fireball.GetComponent<Rigidbody2D>().AddForce(new Vector2(-400, 0));
+            }
+            //destroy after 1 second
+            Destroy(fireball, 1.0f);
+
         }
-        //give it force to left
-
-        if (righttrue == false)
-        {
-            fireball.GetComponent<Rigidbody2D>().AddForce(new Vector2(-400, 0));
-        }
-        //destroy after 1 second
-        Destroy(fireball, 1.0f);
-
-
     }
 
 

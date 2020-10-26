@@ -21,20 +21,11 @@ public class LWSWD_SCRIPT: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        handleMovement();
+       // handleMovement();
 
 
 
-        //only slashes when crouch is pressed
-        if ((Input.GetKey(KeyCode.S) && Input.GetKeyDown(KeyCode.K)) || (Input.GetKeyDown(KeyCode.K) && Input.GetKey(KeyCode.S)))
-        {
-            Fire();
-          
-        }
-        else
-        {
-           slash = false;
-        }
+        
     }
     void handleMovement()
 
@@ -56,7 +47,7 @@ public class LWSWD_SCRIPT: MonoBehaviour
 
 
     }
-    void Fire()
+   public void lowSlash()
     {
 
 
@@ -79,19 +70,7 @@ public class LWSWD_SCRIPT: MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //destroys on enemy collision
-
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-
-            Destroy(gameObject);
-
-        }
-
-
-    }
+    
 
 
 }
