@@ -18,7 +18,7 @@ public class PLAYERANIM_SCRIPT : MonoBehaviour
     void Update()
     {
         //just walk
-        if (myPlayerMovement.isMoving == true && myPlayerMovement.isGrounded == true && myPlayerMovement.midslash == false)
+        if (myPlayerMovement.isMoving == true && myPlayerMovement.isGrounded == true && myPlayerMovement.midslash == false && myPlayerMovement.death == false)
         {
             PLAYER_CONTROL.SetBool("Walk", true);
             PLAYER_CONTROL.SetBool("Jump", false);
@@ -29,7 +29,7 @@ public class PLAYERANIM_SCRIPT : MonoBehaviour
         }
         //just walk end
         //move jump
-        else if (myPlayerMovement.isMoving == true && myPlayerMovement.isGrounded == false)
+        else if (myPlayerMovement.isMoving == true && myPlayerMovement.isGrounded == false && myPlayerMovement.death == false)
         {
             PLAYER_CONTROL.SetBool("Walk", false);
             PLAYER_CONTROL.SetBool("Jump", true);
@@ -43,7 +43,7 @@ public class PLAYERANIM_SCRIPT : MonoBehaviour
 
         //jump end
         //jumpslash
-        else if (myPlayerMovement.isMoving == false && myPlayerMovement.isGrounded == false && myPlayerMovement.highslash == false)
+        else if (myPlayerMovement.isMoving == false && myPlayerMovement.isGrounded == false && myPlayerMovement.highslash == false && myPlayerMovement.death == false)
         {
             PLAYER_CONTROL.SetBool("Walk", false);
             PLAYER_CONTROL.SetBool("Jump", true);
@@ -54,7 +54,7 @@ public class PLAYERANIM_SCRIPT : MonoBehaviour
 
         }
         //jumpslash end
-        else if (myPlayerMovement.isMoving == false && myPlayerMovement.isGrounded == false && myPlayerMovement.highslash == true)
+        else if (myPlayerMovement.isMoving == false && myPlayerMovement.isGrounded == false && myPlayerMovement.highslash == true && myPlayerMovement.death == false)
         {
             PLAYER_CONTROL.SetBool("Walk", false);
             PLAYER_CONTROL.SetBool("Jump", true);
@@ -65,7 +65,7 @@ public class PLAYERANIM_SCRIPT : MonoBehaviour
 
 
         }
-        else if (myPlayerMovement.isMoving == true && myPlayerMovement.isGrounded == false && myPlayerMovement.highslash == false)
+        else if (myPlayerMovement.isMoving == true && myPlayerMovement.isGrounded == false && myPlayerMovement.highslash == false && myPlayerMovement.death == false)
         {
             PLAYER_CONTROL.SetBool("Walk", false);
             PLAYER_CONTROL.SetBool("Jump", true);
@@ -75,7 +75,7 @@ public class PLAYERANIM_SCRIPT : MonoBehaviour
 
 
         }
-        else if (myPlayerMovement.isMoving == true && myPlayerMovement.isGrounded == false && myPlayerMovement.highslash == true)
+        else if (myPlayerMovement.isMoving == true && myPlayerMovement.isGrounded == false && myPlayerMovement.highslash == true && myPlayerMovement.death == false)
         {
             PLAYER_CONTROL.SetBool("Walk", false);
             PLAYER_CONTROL.SetBool("Jump", true);
@@ -86,7 +86,7 @@ public class PLAYERANIM_SCRIPT : MonoBehaviour
 
         }
         //walk slash
-        else if (myPlayerMovement.isMoving == true && myPlayerMovement.isGrounded == true && myPlayerMovement.midslash == true)
+        else if (myPlayerMovement.isMoving == true && myPlayerMovement.isGrounded == true && myPlayerMovement.midslash == true && myPlayerMovement.death == false)
         {
             PLAYER_CONTROL.SetBool("Crouch", false);
             PLAYER_CONTROL.SetBool("Walk", true);
@@ -99,7 +99,7 @@ public class PLAYERANIM_SCRIPT : MonoBehaviour
         //walk slash end
 
         //stand slash
-        else if (myPlayerMovement.isMoving == false && myPlayerMovement.isGrounded == true && myPlayerMovement.midslash == true)
+        else if (myPlayerMovement.isMoving == false && myPlayerMovement.isGrounded == true && myPlayerMovement.midslash == true && myPlayerMovement.death == false)
         {
             PLAYER_CONTROL.SetBool("Crouch", false);
             PLAYER_CONTROL.SetBool("Walk", false);
@@ -113,7 +113,7 @@ public class PLAYERANIM_SCRIPT : MonoBehaviour
         //stand slash end
 
         //crouch
-        else if (myPlayerMovement.crouch == true && myPlayerMovement.lowslash == false)
+        else if (myPlayerMovement.crouch == true && myPlayerMovement.lowslash == false && myPlayerMovement.death == false)
         {
             PLAYER_CONTROL.SetBool("Walk", false);
             PLAYER_CONTROL.SetBool("Jump", false);
@@ -126,7 +126,7 @@ public class PLAYERANIM_SCRIPT : MonoBehaviour
         }
         //crouch end
         //crouch slash
-        else if (myPlayerMovement.crouch == true && myPlayerMovement.lowslash == true)
+        else if (myPlayerMovement.crouch == true && myPlayerMovement.lowslash == true && myPlayerMovement.death == false)
         {
             PLAYER_CONTROL.SetBool("Walk", false);
             PLAYER_CONTROL.SetBool("Jump", false);
@@ -139,7 +139,7 @@ public class PLAYERANIM_SCRIPT : MonoBehaviour
         }
         //crouch slash end
         //fireball
-        else if (myPlayerMovement.isMoving == false && myPlayerMovement.isGrounded == true && myPlayerMovement.castingfireball == true)
+        else if (myPlayerMovement.isMoving == false && myPlayerMovement.isGrounded == true && myPlayerMovement.castingfireball == true && myPlayerMovement.death == false)
         {
             PLAYER_CONTROL.SetBool("Walk", false);
             PLAYER_CONTROL.SetBool("Jump", false);
@@ -148,6 +148,19 @@ public class PLAYERANIM_SCRIPT : MonoBehaviour
             PLAYER_CONTROL.SetBool("Crouch", false);
 
 
+        }
+
+        else if(myPlayerMovement.death ==true)
+        {
+
+            PLAYER_CONTROL.SetBool("Walk", false);
+            PLAYER_CONTROL.SetBool("Jump", false);
+            PLAYER_CONTROL.SetBool("Crouch", false);
+            PLAYER_CONTROL.SetBool("Slash", false);
+            PLAYER_CONTROL.SetBool("LowSlash", false);
+            PLAYER_CONTROL.SetBool("HighSlash", false);
+            PLAYER_CONTROL.SetBool("Death", true);
+            PLAYER_CONTROL.SetBool("Fireball", false);
         }
         //fireball end
 

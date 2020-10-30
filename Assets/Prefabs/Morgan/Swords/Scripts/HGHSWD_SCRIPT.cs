@@ -31,7 +31,7 @@ public class HGHSWD_SCRIPT: MonoBehaviour
 //makes the slash fire when jumps pressed with k
         if (player.isGrounded ==false && Input.GetKeyDown(KeyCode.K))
         {
-            Fire();
+          //  Fire();
            // highslash = true;
 
         }
@@ -45,16 +45,16 @@ public class HGHSWD_SCRIPT: MonoBehaviour
 
     {
         //high slash is right
-        if (Input.GetAxis("Horizontal") > 0)
+        if (player.isLeft == false)
         {
-            transform.localPosition = new Vector3(2.7f, 2.1f, -0.5f);
+           swordPrefab.transform.localPosition = new Vector3(2.7f, 2.1f, 0f);
 
         }
 
         //high slash is left
-        else if (Input.GetAxis("Horizontal") < 0)
+        else if (player.isLeft == true)
         {
-            transform.localPosition = new Vector3(-2.7f, 2.1f, -0.5f);
+            swordPrefab.transform.localPosition = new Vector3(-2.7f, 2.1f, 0f);
 
         }
 
@@ -63,7 +63,7 @@ public class HGHSWD_SCRIPT: MonoBehaviour
 
 
     }
-    void Fire()
+   /* void Fire()
     {
 
        
@@ -86,6 +86,7 @@ public class HGHSWD_SCRIPT: MonoBehaviour
 
             
     }
+    */
     private void OnTriggerEnter2D(Collider2D collision)
     {
 

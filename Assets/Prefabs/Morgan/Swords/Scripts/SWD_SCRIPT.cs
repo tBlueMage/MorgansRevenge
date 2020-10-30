@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SWD_SCRIPT : MonoBehaviour
 {
+    public PLAYER_SCRIPT player;
     //gets the sword prefab
     public GameObject swordPrefab;
     //spawns the sword
@@ -24,9 +25,9 @@ public class SWD_SCRIPT : MonoBehaviour
 
 
     // Update is called once per frame
-    void  Update()
+    void Update()
     {
-        //handleMovement();
+        handleMovement();
 
     }
     void handleMovement()
@@ -34,15 +35,15 @@ public class SWD_SCRIPT : MonoBehaviour
 
     {
         //makes sword face right
-        if (Input.GetAxis("Horizontal") > 0)
+        if (player.isLeft == false)
         {
-            transform.localPosition = new Vector3(3.2f, 0, 0);
+           SwordSpawn.transform.localPosition = new Vector3(-2.47f, 2.11f, 0);
 
         }
         //makes sword face left
-        else if (Input.GetAxis("Horizontal") < 0)
+        else if (player.isLeft == true)
         {
-            transform.localPosition = new Vector3(-3.2f, 0, 0);
+            SwordSpawn.transform.localPosition = new Vector3(-.97f, 2.11f, 0);
 
         }
 

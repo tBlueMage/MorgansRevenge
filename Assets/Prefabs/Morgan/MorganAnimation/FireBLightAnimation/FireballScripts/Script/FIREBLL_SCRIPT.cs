@@ -49,16 +49,16 @@ public class FIREBLL_SCRIPT : MonoBehaviour
 
     {
         //sets the point right
-        if (Input.GetAxis("Horizontal") > 0)
+        if (unlock.isLeft == false)
         {
-            FireballSpawn.transform.localPosition = new Vector3(2.9f, 0, 0);
+            FireballSpawn.transform.localPosition = new Vector3(-2.9f, 0, 0);
             righttrue = true;
         }
 
         //sets the point left
-        else if (Input.GetAxis("Horizontal") < 0)
+        else if (unlock.isLeft == true)
         {
-            FireballSpawn.transform.localPosition = new Vector3(-2.9f, 0, 0);
+            FireballSpawn.transform.localPosition = new Vector3(2.9f, 0, 0);
             righttrue = false;
         }
 

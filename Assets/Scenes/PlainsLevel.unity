@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 88328836}
   m_Layer: 8
   m_Name: Destructible Wall 1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22441,6 +22441,12 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 75913365382173142, guid: 1d72c3698bb86f34cb1cd4a5b4995e6f,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000,
+        type: 0}
     - target: {fileID: 332462988510298974, guid: 1d72c3698bb86f34cb1cd4a5b4995e6f,
         type: 3}
       propertyPath: m_TagString
@@ -22581,6 +22587,12 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 6012946320180373045, guid: 1d72c3698bb86f34cb1cd4a5b4995e6f,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000,
+        type: 0}
     - target: {fileID: 6295668167831534959, guid: 1d72c3698bb86f34cb1cd4a5b4995e6f,
         type: 3}
       propertyPath: m_IsTrigger
@@ -22601,7 +22613,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9180885643136525512, guid: 1d72c3698bb86f34cb1cd4a5b4995e6f,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000,
+        type: 0}
+    m_RemovedComponents:
+    - {fileID: 47775729997809428, guid: 1d72c3698bb86f34cb1cd4a5b4995e6f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1d72c3698bb86f34cb1cd4a5b4995e6f, type: 3}
 --- !u!1001 &574445305
 PrefabInstance:
@@ -23805,7 +23824,7 @@ GameObject:
   - component: {fileID: 1029047045}
   m_Layer: 0
   m_Name: Destructible Wall 2
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
