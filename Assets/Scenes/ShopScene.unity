@@ -1687,6 +1687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60ce003b798489e4e93cee70a91117b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 6071533061322735625}
   swordPrefab: {fileID: 1063632248831671897, guid: 1b0ad36ab8f792d468cc9f1cb09ee6ae,
     type: 3}
   SwordSpawn: {fileID: 8672001241264329457}
@@ -1734,6 +1735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a4a753dcddee5479eb0600f589cd1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 6071533061322735625}
   swordPrefab: {fileID: 1063632248831671897, guid: 1b0ad36ab8f792d468cc9f1cb09ee6ae,
     type: 3}
   SwordSpawn: {fileID: 449690612508222061}
@@ -1789,8 +1791,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hp: {fileID: 176695728}
   level: {fileID: 6071533061322735628}
+  castingfireball: 0
   fireunlock: 0
   coinvalue: {fileID: 1911503390}
+  highslash: 0
+  lowslash: 0
   thrust: 0
   myBox: {fileID: 6071533061954601496}
   groundLayer:
@@ -1799,6 +1804,8 @@ MonoBehaviour:
   coin: 0
   invulnertimer: 0
   invulnertarget: 0
+  midslash: 0
+  crouch: 0
   invicibility: 0
   death: 0
   deathtimer: 0
